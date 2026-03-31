@@ -1107,20 +1107,22 @@ function renderStats() {
    PROYECTOS — helper visual (imagen + fallback emoji)
 ──────────────────────────────────────────────────── */
 function createVisual(meta, isFeatured) {
+  if (!meta.image) return null;
+
   const wrap = document.createElement('div');
   wrap.className = 'proj-visual';
+
   const img = document.createElement('img');
   img.alt = meta.title_es || meta.repo || '';
+  img.src = meta.image;
+
   img.onerror = () => {
-    wrap.classList.add('fallback');
-    wrap.textContent = meta.emoji || '💻';
-    img.remove();
+    wrap.remove();
   };
-  img.src = meta.image || `images/projects/${meta.repo || meta.name}.jpg`;
+
   wrap.appendChild(img);
   return wrap;
 }
-
 /* ────────────────────────────────────────────────────
    PROYECTOS — render de una tarjeta
 ──────────────────────────────────────────────────── */
