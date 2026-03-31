@@ -1107,17 +1107,21 @@ function renderStats() {
    PROYECTOS — helper visual (imagen + fallback emoji)
 ──────────────────────────────────────────────────── */
 function createVisual(meta, isFeatured) {
-  if (!meta.image) return null;
-
   const wrap = document.createElement('div');
   wrap.className = 'proj-visual';
+
+  if (!meta.image) {
+    wrap.style.display = 'none';
+    return wrap;
+  }
 
   const img = document.createElement('img');
   img.alt = meta.title_es || meta.repo || '';
   img.src = meta.image;
 
   img.onerror = () => {
-    wrap.remove();
+    wrap.style.display = 'none';
+    img.remove();
   };
 
   wrap.appendChild(img);
