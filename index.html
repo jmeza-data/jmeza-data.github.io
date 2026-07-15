@@ -14,7 +14,7 @@
      ██████████████████████████████████████████████████████████████
      █                                                            █
      █   ZONA DE CONFIGURACIÓN — SOLO EDITA ESTA PARTE           █
-     █   Todo lo demás (CSS, HTML, JS) no necesita tocarse.  sasasasasa    █
+     █   Todo lo demás (CSS, HTML, JS) no necesita tocarse.      █
      █                                                            █
      ██████████████████████████████████████████████████████████████
 ════════════════════════════════════════════════════════════════ -->
@@ -42,8 +42,8 @@ const PROFILE = {
        - Vacío "": muestra las iniciales */
   photo: "IMG_2646.JPEG",
   /* Cargo / subtítulo que aparece debajo del nombre */
-  role_es: "Data Scientist · ML Engineer · Economista",
-  role_en: "Data Scientist · ML Engineer · Economist",
+  role_es: "Data Scientist · Data Engineer · Economista",
+  role_en: "Data Scientist · Data Engineer · Economist",
   /* Texto de disponibilidad en el hero */
   available_es: "Disponible para nuevas oportunidades",
   available_en: "Open to new opportunities",
@@ -155,8 +155,8 @@ const SKILLS = [
 const EXPERIENCE = [
  {
     company:    "Bosonit",
-    role_es:    "Associate Data Engineer",
-    role_en:    "Associate Data Engineer",
+    role_es:    "Analyst Data Engineer",
+    role_en:    "Analyst Data Engineer",
     period_es:  "May 2026 — Hoy",
     period_en:  "May 2026 — Present",
     current:    true,
@@ -180,13 +180,13 @@ const EXPERIENCE = [
     period_en:  "Nov 2025 — Apr 2026",
     current:    false,
     bullets_es: [
-      "Consultoría de Gobierno de IA y Arquitectura Agéntica para grupo financiero: diagnóstico de madurez, análisis de riesgos y roadmap, aplicando NIST AI RMF, ISO/IEC 42001 y TOGAF."  
+      "Consultoría de Gobierno de IA y Arquitectura Agéntica para grupo financiero: diagnóstico de madurez, análisis de riesgos y roadmap, aplicando NIST AI RMF, ISO/IEC 42001 y TOGAF.",
       "Lideré el proyecto SISCET desarrollando algoritmos de competitividad para el sector turístico de Chile (Cámara de Comercio + BID), del diseño analítico hasta la entrega y presentación al cliente",
       "Ejecuté proyectos de gobierno de datos y lideré la implementación de un marco de gobierno de IA en Bancoomeva; conduje las presentaciones al cliente que consolidaron un contrato de +COP 200M",
       "Optimicé el ChatBot de Grafenos resolviendo errores de lectura de archivos e incorporando validación y control de calidad de datos",
     ],
     bullets_en: [
-      "AI Governance and Agent Architecture Consulting for a financial group: maturity diagnosis, risk analysis and roadmap, applying NIST AI RMF, ISO/IEC 42001 and TOGAF."
+      "AI Governance and Agent Architecture Consulting for a financial group: maturity diagnosis, risk analysis and roadmap, applying NIST AI RMF, ISO/IEC 42001 and TOGAF.",
       "Led the SISCET project, developing competitiveness algorithms for Chile's tourism sector (Chamber of Commerce + IDB), from analytical design to client delivery and presentation",
       "Delivered data governance projects and led the implementation of an AI governance framework at Bancoomeva; ran the client presentations that secured a +COP 200M contract",
       "Optimized the Grafenos ChatBot by fixing file-reading errors and adding data validation and quality control",
@@ -743,6 +743,28 @@ h1.hero-name{
   font-family:'JetBrains Mono',monospace;font-size:9.5px;
   padding:3px 8px;border-radius:20px;
   background:var(--tag-bg);color:var(--subtle);border:1px solid var(--tag-br);
+}
+
+/* ==== EXPERIENCE — animación de entrada por cascada ==== */
+.exp-item .exp-date{opacity:0;transform:translateX(-14px);transition:opacity .55s var(--ease) .08s,transform .55s var(--ease) .08s}
+.exp-item.in .exp-date{opacity:1;transform:none}
+.exp-item .exp-role{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease) .14s,transform .5s var(--ease) .14s}
+.exp-item.in .exp-role{opacity:1;transform:none}
+.exp-item .exp-co{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease) .2s,transform .5s var(--ease) .2s}
+.exp-item.in .exp-co{opacity:1;transform:none}
+.exp-item .exp-list-items li{opacity:0;transform:translateX(-10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.exp-item.in .exp-list-items li{opacity:1;transform:none}
+.exp-item.in .exp-list-items li:nth-child(1){transition-delay:.28s}
+.exp-item.in .exp-list-items li:nth-child(2){transition-delay:.37s}
+.exp-item.in .exp-list-items li:nth-child(3){transition-delay:.46s}
+.exp-item.in .exp-list-items li:nth-child(4){transition-delay:.55s}
+.exp-item.in .exp-list-items li:nth-child(5){transition-delay:.64s}
+.exp-item .exp-tags{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease) .58s,transform .5s var(--ease) .58s}
+.exp-item.in .exp-tags{opacity:1;transform:none}
+.exp-now{animation:expBadge 2.6s ease-in-out infinite}
+@keyframes expBadge{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}50%{box-shadow:0 0 0 4px rgba(22,163,74,0.09)}}
+@media(prefers-reduced-motion:reduce){
+  .exp-item .exp-date,.exp-item .exp-role,.exp-item .exp-co,.exp-item .exp-list-items li,.exp-item .exp-tags,.exp-now{transition:none!important;animation:none!important;opacity:1!important;transform:none!important}
 }
 
 /* ════════════════ CERTIFICATIONS ════════════════ */
