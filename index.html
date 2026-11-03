@@ -8,82 +8,53 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 
 <!-- ════════════════════════════════════════════════════════════════
-     ██████████████████████████████████████████████████████████████
-     █                                                            █
-     █   ZONA DE CONFIGURACIÓN — SOLO EDITA ESTA PARTE           █
-     █   Todo lo demás (CSS, HTML, JS) no necesita tocarse.      █
-     █                                                            █
-     ██████████████████████████████████████████████████████████████
+     ZONA DE CONFIGURACIÓN — SOLO EDITA ESTA PARTE
+     Todo lo demás (CSS, HTML, JS) no necesita tocarse.
 ════════════════════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
-/* ════════════════════════════════════════════════════
-   ❶  PERFIL PERSONAL
-   ─────────────────────────────────────────────────
-   Cambia aquí nombre, cargo, foto, ubicación y links.
-   Estos datos se usan en el hero, about, contacto
-   y en el footer. No necesitas buscarlos en el HTML.
-════════════════════════════════════════════════════ */
+/* ❶ PERFIL PERSONAL */
 const PROFILE = {
-  /* Nombre completo — aparece en hero y footer */
   name_full: "Jhoan Sebastian Meza Garcia",
-  /* Nombre corto — aparece en el título del hero (2 líneas) */
   name_line1: "Jhoan",
   name_line2: "Meza",
-  /* Iniciales — placeholder de la foto si PHOTO_URL está vacío */
   initials: "JM",
-  /* URL de tu foto. Opciones:
-       - Ruta local: "images/profile.jpg"  (crea carpeta images/ junto al HTML)
-       - URL web:    "https://ejemplo.com/foto.jpg"
-       - Vacío "": muestra las iniciales */
+  /* URL de tu foto principal (hero / sobre mí). Vacío "" = iniciales */
   photo: "IMG_2646.JPEG",
-  /* Cargo / subtítulo que aparece debajo del nombre */
-  role_es: "Data Scientist · ML Engineer · Economista",
-  role_en: "Data Scientist · ML Engineer · Economist",
-  /* Texto de disponibilidad en el hero */
+  role_es: "AI Engineer · Data Scientist · Economista",
+  role_en: "AI Engineer · Data Scientist · Economist",
+  /* Titular principal del hero (3 partes: la 3ª va en acento itálico) */
+  headline_es: ["Construyo IA", "en la que se puede", "confiar"],
+  headline_en: ["I build AI", "people can", "trust"],
   available_es: "Disponible para nuevas oportunidades",
   available_en: "Open to new opportunities",
-  /* Párrafo breve del hero */
-  bio_es: "Desarrollo  <strong> soluciones de analítica, modelado y automatización </strong>con impacto real de negocio. Combino análisis aplicado, criterio estratégico y ejecución técnica para resolver problemas complejos.",
-  bio_en: "I transform complex data into <strong>strategic decisions</strong>. Specialist in scalable ML models, analytical automation and <strong>measurable business value</strong> with Python, R and AI.",
-  /* Ubicación mostrada en la foto y en About */
+  lede_es: "Ingeniero de IA y economista. Construyo <strong>agentes, RAG y sistemas de datos</strong>, y los marcos para evaluarlos antes de que lleguen a producción.",
+  lede_en: "AI engineer and economist. I build <strong>agents, RAG and data systems</strong>, and the frameworks to evaluate them before they reach production.",
+  sub_es: "La parte difícil no es entrenar el modelo. Es que alguien pueda explicarlo, auditarlo y responder por él.",
+  sub_en: "The hard part isn't training the model. It's making it something a person can explain, audit and trust.",
   location: "Bogotá 🇨🇴",
   location_full: "Bogotá, Colombia 🇨🇴",
-  /* Disponibilidad en About (true = verde "Disponible") */
   is_available: true,
-  /* Modalidad de trabajo */
   work_mode_es: "Remoto · Híbrido",
   work_mode_en: "Remote · Hybrid",
-  /* Educación mostrada en About */
   education_es: "Economista · UNAL",
   education_en: "Economist · UNAL",
-  /* Año para el copyright del footer */
-  year: "2025",
-
-  /* ── LINKS DE CONTACTO ──────────────────────────────
-     Estos se usan en: hero buttons, about sidebar,
-     tarjetas de contacto y footer.
-     Deja en "" si no quieres mostrar uno. */
+  year: "2026",
   links: {
     github:   "https://github.com/jmeza-data",
     linkedin: "https://www.linkedin.com/in/jhoan-sebastian-meza-garcia-12228b329/",
     email:    "Jmezag@unal.edu.co",
-    phone:    "+573185898421",           /* formato internacional sin espacios */
-    phone_display: "(+57) 318 589 8421", /* como se muestra al usuario */
-    cv: "",   /* URL de tu CV descargable. Déjalo "" para no mostrarlo */
+    phone:    "+573185898421",
+    phone_display: "(+57) 318 589 8421",
+    cv: "",
   }
 };
 
-/* ════════════════════════════════════════════════════
-   ❷  VISIBILIDAD DE SECCIONES
-   ─────────────────────────────────────────────────
-   Pon false para ocultar una sección completa.
-   No necesitas borrar el código, solo cambia a false.
-════════════════════════════════════════════════════ */
+/* ❷ VISIBILIDAD DE SECCIONES */
 const SHOW = {
   stats:          true,
   projects:       true,
@@ -91,107 +62,79 @@ const SHOW = {
   experience:     true,
   certifications: true,
   about:          true,
-  languages:      true,   /* barras de idioma dentro de About */
+  languages:      true,
   contact:        true,
 };
 
-/* ════════════════════════════════════════════════════
-   ❸  ESTADÍSTICAS (barra oscura debajo del hero)
-   ─────────────────────────────────────────────────
-   target: número final de la animación
-   suffix: texto que se añade al número ("+" / " apps" / "M COP")
-   label_es / label_en: etiqueta debajo del número
-════════════════════════════════════════════════════ */
+/* ❸ MÉTRICAS (panel de lecturas del hero) */
 const STATS = [
-  { target: 17,  suffix: "+",      label_es: "Repos públicos",   label_en: "Public repos"    },
-  { target: 5,   suffix: " apps",  label_es: "En producción",    label_en: "In production"   },
-  { target: 3,   suffix: " años",  label_es: "Experiencia laboral, academica e investigativa",      label_en: "Experience"      },
-  { target: 200, suffix: "M COP",  label_es: "Participación en cierre comercial", label_en: "Deal closed"     },
+  { target: 17,  suffix: "",   unit: "repos", label_es: "públicos en GitHub",   label_en: "public on GitHub" },
+  { target: 5,   suffix: "",   unit: "apps",  label_es: "en producción",         label_en: "in production" },
+  { target: 12,  suffix: "+",  unit: "",      label_es: "proyectos de datos e IA", label_en: "data & AI projects" },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❹  HABILIDADES / SKILLS
-   ─────────────────────────────────────────────────
-   Agrega, elimina o edita grupos.
-   name: título del grupo (solo un idioma — es técnico)
-   icon: emoji
-   tags: array de tecnologías
-════════════════════════════════════════════════════ */
+/* ❹ GALERÍA DE FOTOS (sección dedicada con espacio para tus imágenes)
+   Agrega objetos {src, caption_es, caption_en}. src = ruta local o URL.
+   Deja el array vacío [] para ocultar la sección completa. */
+const PHOTOS = [
+  { src: "", caption_es: "Charla sobre emprendimiento", caption_en: "Entrepreneurship talk" },
+  { src: "", caption_es: "Equipo de trabajo", caption_en: "Team" },
+  { src: "", caption_es: "Evento / conferencia", caption_en: "Event / conference" },
+];
+
+/* ❺ HABILIDADES / SKILLS */
 const SKILLS = [
-  {
-    icon: "🤖", name: "Machine Learning",
-    tags: ["scikit-learn","XGBoost","LightGBM","Random Forest","SHAP","Clustering","ARMA/ARIMA"],
-  },
-  {
-    icon: "🧠", name: "Deep Learning & GenAI",
-    tags: ["Redes Neuronales","TensorFlow","LLM","ChatBot","AI Governance","RAG"],
-  },
-  {
-    icon: "📊", name: "Analytics & Viz",
-    tags: ["Power BI","Tableau","Streamlit","Plotly","ggplot2","Matplotlib"],
-  },
-  {
-    icon: "💻", name: "Lenguajes & Data",
-    tags: ["Python","R","SQL","Pandas","NumPy","dplyr","Excel Avanzado"],
-  },
-  {
-    icon: "⚡", name: "Deploy & Tools",
-    tags: ["Streamlit Cloud","FastAPI","GitHub Actions","Git","Jupyter"],
-  },
-  {
-    icon: "📐", name: "Economía & Métodos",
-    tags: ["Econometría","Series de tiempo","Estadística","IPM/DANE","Box-Jenkins"],
-  },
+  { icon: "🤖", name: "AI & Agentes", tags: ["AI Agents","RAG","LLM","REST APIs","AI Governance","NIST AI RMF","ISO 42001"] },
+  { icon: "🧠", name: "Machine Learning", tags: ["scikit-learn","XGBoost","LightGBM","Random Forest","SHAP","Clustering","ARIMA"] },
+  { icon: "📊", name: "Analytics & Viz", tags: ["Power BI","Tableau","Streamlit","Plotly","ggplot2","Matplotlib"] },
+  { icon: "💻", name: "Lenguajes & Data", tags: ["Python","R","SQL","Snowflake","Pandas","NumPy","dplyr"] },
+  { icon: "⚡", name: "Deploy & Tools", tags: ["FastAPI","Streamlit Cloud","GitHub Actions","Git","Jupyter"] },
+  { icon: "📐", name: "Economía & Métodos", tags: ["Econometría","Series de tiempo","Estadística","Box-Jenkins"] },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❺  EXPERIENCIA LABORAL
-   ─────────────────────────────────────────────────
-   Para AGREGAR un trabajo nuevo: copia un bloque {}
-   y pégalo al principio del arreglo.
-   current: true → muestra badge "● Actual"
-   Los bullets se definen en ES e EN por separado.
-════════════════════════════════════════════════════ */
+/* ❻ EXPERIENCIA LABORAL */
 const EXPERIENCE = [
- {
+  {
     company:    "Bosonit",
-    role_es:    "Associate Data Engineer",
-    role_en:    "Associate Data Engineer",
+    role_es:    "Data & AI Engineer",
+    role_en:    "Data & AI Engineer",
     period_es:  "May 2026 — Hoy",
     period_en:  "May 2026 — Present",
     current:    true,
     bullets_es: [
-      "Formo parte del equipo de Data Engineering & Modelling que da soporte a los flujos de Marketing Mix Modeling (MMM) de un cliente global de datos de consumo masivo NielsenIQ, preparando y estructurando grandes volúmenes de datos que alimentan los modelos de media y marketing",
-      "Diseño y opero pipelines CMS (Connect Modeling Service) y DRD end-to-end, integrando media, Publisher y POS data, con validaciones y control de calidad (consistencia, faltantes, outliers) que garantizan datos listos para modelar",
-      "Desarrollo flujos en Python dentro de un entorno cloud empresarial seguro, creo templates y ejecuto proyectos BAU en colaboración con los modelling analysts globales",
+      "Construyo sistemas basados en agentes de IA y los marcos que permiten evaluarlos y confiar en ellos antes de llevarlos a producción, para clientes corporativos",
+      "Contribuyo a una plataforma interna para diseñar, documentar y evaluar arquitecturas de agentes de IA: desde el trazado del razonamiento del agente hasta la evaluación de la calidad y auditabilidad de su salida; definí funcionalidades y programé parte del código",
+      "Diseño el modelo de gobernanza de IA para un cliente del sector financiero, aplicando NIST AI RMF, ISO/IEC 42001 y TOGAF a lo largo de 12 dominios de gobierno y 54 capacidades",
+      "Desarrollo agentes de IA, pipelines RAG y APIs REST en Python, convirtiendo los requerimientos del cliente en sistemas funcionales",
     ],
     bullets_en: [
-      "Part of the Data Engineering & Modelling team supporting the Marketing Mix Modeling (MMM) workflows of a global consumer-data (FMCG) client, preparing and structuring large-scale datasets that feed media and marketing models",
-      "Design and run CMS (Connect Modeling Service) and DRD pipelines end-to-end, integrating media, Publisher and POS data, with validation and quality control (consistency, missing values, outliers) to deliver model-ready data",
-      "Build Python data workflows in a secured enterprise cloud environment, create templates and execute BAU projects in collaboration with global modelling analysts",
+      "Build agent-based AI systems and the frameworks to evaluate and trust them before they reach production, for enterprise clients",
+      "Contribute to an internal platform to design, document and evaluate AI agent architectures: from tracing agent reasoning to assessing the quality and auditability of its output; defined features and coded part of it",
+      "Design the AI governance model for a financial-sector client, applying NIST AI RMF, ISO/IEC 42001 and TOGAF across 12 governance domains and 54 capabilities",
+      "Build AI agents, RAG pipelines and REST APIs in Python, turning client requirements into working systems",
     ],
-    tags: ["Python","SQL","Data Engineering","MMM","ETL/Pipelines","Databricks","Data Quality"],
+    tags: ["Python","AI Agents","RAG","AI Governance","NIST AI RMF","ISO 42001","REST APIs"],
   },
   {
     company:    "Bosonit",
-    role_es:    "Científico de Datos Junior",
-    role_en:    "Junior Data Scientist",
+    role_es:    "Data Scientist · AI Consultant",
+    role_en:    "Data Scientist · AI Consultant",
     period_es:  "Nov 2025 — Abr 2026",
     period_en:  "Nov 2025 — Apr 2026",
     current:    false,
     bullets_es: [
-      "Consultoría de Gobierno de IA y Arquitectura Agéntica para grupo financiero: diagnóstico de madurez, análisis de riesgos y roadmap, aplicando NIST AI RMF, ISO/IEC 42001 y TOGAF.",
+      "Consultoría de gobierno de IA y arquitectura agéntica para un grupo financiero: diagnóstico de madurez, análisis de riesgos y roadmap, aplicando NIST AI RMF, ISO/IEC 42001 y TOGAF",
       "Lideré el proyecto SISCET desarrollando algoritmos de competitividad para el sector turístico de Chile (Cámara de Comercio + BID), del diseño analítico hasta la entrega y presentación al cliente",
-      "Ejecuté proyectos de gobierno de datos y lideré la implementación de un marco de gobierno de IA en Bancoomeva; conduje las presentaciones al cliente que consolidaron un contrato de +COP 200M",
-      "Optimicé el ChatBot de Grafenos resolviendo errores de lectura de archivos e incorporando validación y control de calidad de datos",
+      "Lideré la implementación de un marco de gobierno de IA para un grupo financiero, aplicando NIST AI RMF e ISO/IEC 42001, y conduje las presentaciones ejecutivas con el cliente",
+      "Optimicé un chatbot de IA en producción resolviendo errores de lectura de archivos e incorporando validación y control de calidad de datos",
     ],
     bullets_en: [
-      "AI Governance and Agent Architecture Consulting for a financial group: maturity diagnosis, risk analysis and roadmap, applying NIST AI RMF, ISO/IEC 42001 and TOGAF.",
+      "AI governance and agent-architecture consulting for a financial group: maturity diagnosis, risk analysis and roadmap, applying NIST AI RMF, ISO/IEC 42001 and TOGAF",
       "Led the SISCET project, developing competitiveness algorithms for Chile's tourism sector (Chamber of Commerce + IDB), from analytical design to client delivery and presentation",
-      "Delivered data governance projects and led the implementation of an AI governance framework at Bancoomeva; ran the client presentations that secured a +COP 200M contract",
-      "Optimized the Grafenos ChatBot by fixing file-reading errors and adding data validation and quality control",
+      "Led the implementation of an AI governance framework for a financial group, applying NIST AI RMF and ISO/IEC 42001, and ran the executive client presentations",
+      "Improved a production AI chatbot by fixing file-reading errors and adding data validation and quality control",
     ],
-    tags: ["Python","ML","Gobierno de Datos","Gobierno de IA","ChatBot","Consultoría"],
+    tags: ["Python","ML","AI Governance","Agent Architecture","Consulting"],
   },
   {
     company:    "Kenvue · LATAM",
@@ -201,12 +144,12 @@ const EXPERIENCE = [
     period_en:  "Jan — Aug 2025",
     current:    false,
     bullets_es: [
-      "Automatización que redujo 2 días en tiempos de ejecución de procesos operativos",
+      "Automatización en Python que redujo 2 días el tiempo de ejecución de procesos operativos",
       "Dashboards analíticos para seguimiento de métricas e identificación de oportunidades",
-      "Colaboración con equipos de Finanzas y Ventas para mejorar precisión en aplicación de efectivo",
+      "Colaboración con equipos de Finanzas y Ventas para mejorar la precisión en la aplicación de efectivo",
     ],
     bullets_en: [
-      "Automation that reduced 2 days of operational process execution time",
+      "Python automation that cut 2 days of operational process execution time",
       "Analytical dashboards for metrics tracking and optimization identification",
       "Collaboration with Finance and Sales teams to improve cash application accuracy",
     ],
@@ -221,1385 +164,718 @@ const EXPERIENCE = [
     current:    false,
     bullets_es: [
       'Diseñé y dicté "R Avanzado" (20h) para la comunidad universitaria',
-      'Creé "Econometría Básica con Python" (18h) — amplié el curso original de 16h con mejoras propias',
-      "Propuestas de herramientas didácticas y mejoras a base de datos de Asistencias Docentes",
+      'Creé "Econometría Básica con Python" (18h), ampliando el curso original con mejoras propias',
+      "Propuestas de herramientas didácticas y mejoras a la base de datos de Asistencias Docentes",
     ],
     bullets_en: [
       'Designed and taught "Advanced R" (20h) for the university community',
-      'Created "Basic Econometrics with Python" (18h) — expanded original 16h course with my own improvements',
+      'Created "Basic Econometrics with Python" (18h), expanding the original course with my own improvements',
       "Didactic tool proposals and improvements to the Teaching Assistant database",
     ],
     tags: ["Python","R","Econometría","Docencia"],
   },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❻  CERTIFICACIONES Y FORMACIÓN
-   ─────────────────────────────────────────────────
-   Para AGREGAR una certificación: copia un bloque {}
-   y pégalo donde quieras en el arreglo.
-   title_en es opcional; si lo omites, se usa title_es.
-════════════════════════════════════════════════════ */
+/* ❼ CERTIFICACIONES */
 const CERTIFICATIONS = [
- {
-    year: "2026",
-    title_es: "AWS AI Practitioner",
-    title_en: "AWS AI Practitioner",
-    institution: "Udacity - AWS",
-  },
- {
-    year: "2026",
-    title_es: "Spark, Hadoop y Snowflake para la ingeniería de datos",
-    title_en: "Spark, Hadoop y Snowflake for data engenenring",
-    institution: "Duke University",
-  },
- {
-    year: "2026",
-    title_es: "Al Fluency Framework & Foundations",
-    title_en: "Al Fluency Framework & Foundations",
-    institution: "Anthropic",
-  },
-  {
-    year: "2026",
-    title_es: "Building with the Claude API.",
-    title_en: "Building with the Claude API.",
-    institution: "Anthropic",
-  },
-  {
-    year: "2024",
-    title_es: "Diplomado en Análisis y Procesamiento de Datos",
-    title_en: "Diploma in Data Analysis and Processing",
-    institution: "CID · Universidad Nacional de Colombia",
-  },
-  {
-    year: "2024",
-    title_es: "Docente — Programación en Python y R",
-    title_en: "Instructor — Python and R Programming",
-    institution: "Universidad Nacional de Colombia",
-  },
-  {
-    year: "2023",
-    title_es: "Introducción a la Inteligencia Artificial",
-    title_en: "Introduction to Artificial Intelligence",
-    institution: "Unidad de Informática · UNAL",
-  },
-  {
-    year: "2022",
-    title_es: "Machine Learning",
-    title_en: "Machine Learning",
-    institution: "Unidad de Informática · UNAL",
-  },
-  
+  { year: "2026", title_es: "AWS AI Practitioner", title_en: "AWS AI Practitioner", institution: "Udacity · AWS" },
+  { year: "2026", title_es: "Spark, Hadoop y Snowflake para ingeniería de datos", title_en: "Spark, Hadoop & Snowflake for Data Engineering", institution: "Duke University" },
+  { year: "2026", title_es: "AI Fluency: Framework & Foundations", title_en: "AI Fluency: Framework & Foundations", institution: "Anthropic" },
+  { year: "2026", title_es: "Building with the Claude API", title_en: "Building with the Claude API", institution: "Anthropic" },
+  { year: "2024", title_es: "Diplomado en Análisis y Procesamiento de Datos", title_en: "Diploma in Data Analysis and Processing", institution: "CID · UNAL" },
+  { year: "2024", title_es: "Docente — Programación en Python y R", title_en: "Instructor — Python and R Programming", institution: "UNAL" },
+  { year: "2023", title_es: "Introducción a la Inteligencia Artificial", title_en: "Introduction to Artificial Intelligence", institution: "Unidad de Informática · UNAL" },
+  { year: "2022", title_es: "Machine Learning", title_en: "Machine Learning", institution: "Unidad de Informática · UNAL" },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❼  IDIOMAS (barras en About — visible si SHOW.languages)
-════════════════════════════════════════════════════ */
+/* ❽ IDIOMAS */
 const LANGUAGES = [
-  { name: "Español",  pct: 100, level: "C1"  },
-  { name: "English",  pct: 72,  level: "B2+" },
-  { name: "Português",pct: 25,  level: "A2"  },
+  { name: "Español",   pct: 100, level: "C1"  },
+  { name: "English",   pct: 72,  level: "B2+" },
+  { name: "Português", pct: 25,  level: "A2"  },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❽  PÁRRAFOS DE "SOBRE MÍ"
-   ─────────────────────────────────────────────────
-   Agrega o edita párrafos. Puedes usar <strong>.
-   Se renderizan en el mismo orden del arreglo.
-════════════════════════════════════════════════════ */
+/* ❾ SOBRE MÍ */
 const ABOUT_PARAGRAPHS = [
   {
-    es: "Soy <strong>Jhoan Sebastian Meza Garcia</strong>, Economista de la Universidad Nacional de Colombia con sólida formación en analítica de datos, ciencia de datos y transformación de procesos.",
-    en: "I am <strong>Jhoan Sebastian Meza Garcia</strong>, an Economist from Universidad Nacional de Colombia with solid training in data analytics, data science and process transformation.",
+    es: "Soy <strong>Jhoan Sebastián Meza García</strong>, economista de la Universidad Nacional de Colombia. Trabajo en la ingeniería de sistemas de IA, con una obsesión particular: que esos sistemas sean confiables, no solo que funcionen.",
+    en: "I'm <strong>Jhoan Sebastián Meza García</strong>, an economist from Universidad Nacional de Colombia. I work in AI systems engineering, with a particular obsession: that those systems be trustworthy, not just functional.",
   },
   {
-    es: "He participado en proyectos de <strong>consultoría y analítica aplicada</strong> en entornos corporativos, contribuyendo al desarrollo de iniciativas de automatización, modelamiento de datos, visualización ejecutiva, ML y gobierno de IA.",
-    en: "I have participated in <strong>consulting and applied analytics</strong> projects in corporate environments, contributing to automation, data modeling, executive visualization, ML and AI governance.",
+    es: "Construyo agentes de IA, sistemas RAG y pipelines de datos, y diseño los marcos de gobernanza que permiten auditarlos. Vengo de la economía, así que pienso en costos, incentivos y en qué pasa cuando un modelo se equivoca frente a un cliente real.",
+    en: "I build AI agents, RAG systems and data pipelines, and I design the governance frameworks that make them auditable. I come from economics, so I think about cost, incentives and what happens when a model gets it wrong in front of a real client.",
   },
   {
-    es: "Tengo especial interés en la <strong>consultoría, la innovación y la transformación</strong>, con motivación por integrarme a equipos de alto desempeño donde pueda aportar tanto rigor técnico como criterio de negocio.",
-    en: "I have a special interest in <strong>consulting, innovation and transformation</strong>, motivated to join high-performance teams where I can contribute both technical rigor and business acumen.",
+    es: "Me motiva integrarme a equipos de alto desempeño donde pueda aportar tanto rigor técnico como criterio de negocio.",
+    en: "I'm motivated to join high-performance teams where I can contribute both technical rigor and business judgment.",
   },
 ];
 
-/* ════════════════════════════════════════════════════
-   ❾  PROYECTOS — GITHUB + METADATOS PERSONALIZADOS
-   ─────────────────────────────────────────────────
-   GitHub es la fuente base. Solo define lo que quieras
-   personalizar o destacar. Ver comentarios abajo.
-════════════════════════════════════════════════════ */
+/* ❿ PROYECTOS — GitHub + metadatos */
 const GITHUB_USER = "jmeza-data";
 
-/*
-  PROJECT_META: enriquece o controla repos de GitHub.
-  La clave es el nombre exacto del repo en GitHub.
-
-  Campos disponibles:
-  ─────────────────────────────────────────────────
-  pinOrder  → número. Menor = antes. Define proyectos curados.
-  featured  → true = tarjeta grande (solo el primero idealmente)
-  title_es / title_en → título personalizado
-  desc_es / desc_en   → descripción personalizada
-  demo      → URL del demo en vivo
-  tags      → array de tecnologías
-  emoji     → ícono fallback si no hay imagen
-  metric    → métrica destacada, p.ej. "R² = 0.802"
-  image     → ruta a imagen. Convención automática: images/projects/{repo}.jpg
-  hidden    → true para ocultar el repo del portafolio
-*/
 const PROJECT_META = {
   "food-delivery-time-prediction": {
-    title_es: "Food Delivery Time Prediction",
-    title_en: "Food Delivery Time Prediction",
-    desc_es:  "Pipeline ML completo con Random Forest (R²=0.802) para predicción de tiempos de entrega. API REST, Streamlit con LLM y análisis SQL.",
-    desc_en:  "Full ML pipeline with Random Forest (R²=0.802) for delivery time prediction. REST API, Streamlit with LLM and advanced SQL.",
-    demo:     "https://food-delivery-time-prediction-z3c8fxrjyqn3nbwe784grg.streamlit.app",
-    tags:     ["Python","Random Forest","Streamlit","LLM","SQL","FastAPI"],
-    emoji:    "🚚", metric: "R² = 0.802",
-    image:    "streamlit_delivery.png",
+    title_es: "Food Delivery Time Prediction", title_en: "Food Delivery Time Prediction",
+    desc_es: "Pipeline ML completo con Random Forest (R²=0.802) para predicción de tiempos de entrega. API REST, Streamlit con LLM y análisis SQL.",
+    desc_en: "Full ML pipeline with Random Forest (R²=0.802) for delivery time prediction. REST API, Streamlit with LLM and advanced SQL.",
+    demo: "https://food-delivery-time-prediction-z3c8fxrjyqn3nbwe784grg.streamlit.app",
+    tags: ["Python","Random Forest","Streamlit","LLM","SQL","FastAPI"],
+    metric: "R² = 0.802", image: "streamlit_delivery.png",
     featured: true, pinOrder: 1,
   },
   "bank-customer-churn": {
-    title_es: "Bank Churn Prediction",       title_en: "Bank Churn Prediction",
-    desc_es:  "Modelo de churn bancario con Gradient Boosting y redes neuronales. Dashboard con explicabilidad en Streamlit.",
-    desc_en:  "Banking churn model with Gradient Boosting and neural networks. Dashboard with prediction explainability.",
-    demo:     "https://bank-customer-churn-d4jqxttdhpgb6zpgel7fzf.streamlit.app/",
-    tags:     ["Python","Gradient Boosting","Neural Network","Streamlit"],
-    emoji:    "🏦", image: "imagen_2026-03-30_224128106.png", pinOrder: 2,
+    title_es: "Bank Churn Prediction", title_en: "Bank Churn Prediction",
+    desc_es: "Modelo de churn bancario con Gradient Boosting y redes neuronales. Dashboard con explicabilidad en Streamlit.",
+    desc_en: "Banking churn model with Gradient Boosting and neural networks. Dashboard with prediction explainability.",
+    demo: "https://bank-customer-churn-d4jqxttdhpgb6zpgel7fzf.streamlit.app/",
+    tags: ["Python","Gradient Boosting","Neural Network","Streamlit"],
+    image: "imagen_2026-03-30_224128106.png", pinOrder: 2,
   },
   "Titanic_ML_Proyect": {
-    title_es: "Titanic — Ensemble ML",       title_en: "Titanic — Ensemble ML",
-    desc_es:  "End-to-end ML con Logistic Regression, Random Forest, KNN y XGBoost. Comparativa de performance y despliegue en Streamlit.",
-    desc_en:  "End-to-end ML with LR, Random Forest, KNN and XGBoost. Performance comparison and Streamlit deployment.",
-    demo:     "https://titanicmlproyect-82lfgkfcz9cwovq7hko7rv.streamlit.app/",
-    tags:     ["XGBoost","Random Forest","KNN","Streamlit"],
-    emoji:    "🚢", image: "imagen_2026-03-30_224612917.png", pinOrder: 3,
+    title_es: "Ensemble ML — Clasificación", title_en: "Ensemble ML — Classification",
+    desc_es: "Pipeline end-to-end de clasificación con Logistic Regression, Random Forest, KNN y XGBoost. Comparativa de performance y despliegue en Streamlit.",
+    desc_en: "End-to-end classification pipeline with Logistic Regression, Random Forest, KNN and XGBoost. Performance comparison and Streamlit deployment.",
+    demo: "https://titanicmlproyect-82lfgkfcz9cwovq7hko7rv.streamlit.app/",
+    tags: ["XGBoost","Random Forest","KNN","Streamlit"],
+    pinOrder: 3,
   },
   "Repositorio_GX_BOOST_SHAP": {
     title_es: "XGBoost + SHAP — IPM Colombia", title_en: "XGBoost + SHAP — IPM Colombia",
-    desc_es:  "Modelo XGBoost para estimar el IPM con análisis SHAP para interpretabilidad. Datos ECV 2024 del DANE.",
-    desc_en:  "XGBoost model to estimate the Poverty Index with SHAP explainability. ECV 2024 DANE data.",
-    tags:     ["XGBoost","SHAP","Python","R","DANE"],
-    emoji:    "📊", image: "imagen_2026-03-30_224831285.png", pinOrder: 4,
+    desc_es: "Modelo XGBoost para estimar el IPM con análisis SHAP para interpretabilidad. Datos ECV 2024 del DANE.",
+    desc_en: "XGBoost model to estimate the Poverty Index with SHAP explainability. ECV 2024 DANE data.",
+    tags: ["XGBoost","SHAP","Python","R","DANE"],
+    image: "imagen_2026-03-30_224831285.png", pinOrder: 4,
   },
   "Credit-Scoring-Proyect-ML-Logistic-Regretion": {
     title_es: "Credit Scoring — Riesgo Crediticio", title_en: "Credit Scoring — Default Risk",
-    desc_es:  "Pipeline para predecir incumplimiento de créditos. Feature engineering, regresión logística y métricas de clasificación.",
-    desc_en:  "Pipeline to predict credit default risk. Feature engineering, logistic regression and standard metrics.",
-    demo:     "https://fraud-detection-app-9chmn8qwfektuzyodg9nmt.streamlit.app/",
-    tags:     ["Logistic Regression","scikit-learn","Python","Finance"],
-    emoji:    "💳", image: "imagen_2026-03-30_225416157.png", pinOrder: 5,
+    desc_es: "Pipeline para predecir incumplimiento de créditos. Feature engineering, regresión logística y métricas de clasificación.",
+    desc_en: "Pipeline to predict credit default risk. Feature engineering, logistic regression and standard metrics.",
+    demo: "https://fraud-detection-app-9chmn8qwfektuzyodg9nmt.streamlit.app/",
+    tags: ["Logistic Regression","scikit-learn","Python","Finance"],
+    image: "imagen_2026-03-30_225416157.png", pinOrder: 5,
   },
   "powerbi-avianca-report": {
-    title_es: "Dashboard Avianca — Power BI",  title_en: "Avianca Dashboard — Power BI",
-    desc_es:  "Dashboard de ventas Avianca agosto 2025. Segmentación de clientes, métricas de carga y análisis geoespacial.",
-    desc_en:  "Avianca sales dashboard August 2025. Client segmentation, cargo metrics and geospatial analysis.",
-    tags:     ["Power BI","DAX","Geospatial","KPI"],
-    emoji:    "✈️", image: "imagen_2026-03-30_225515848.png", pinOrder: 6,
+    title_es: "Dashboard Avianca — Power BI", title_en: "Avianca Dashboard — Power BI",
+    desc_es: "Dashboard de ventas Avianca agosto 2025. Segmentación de clientes, métricas de carga y análisis geoespacial.",
+    desc_en: "Avianca sales dashboard August 2025. Client segmentation, cargo metrics and geospatial analysis.",
+    tags: ["Power BI","DAX","Geospatial","KPI"],
+    image: "imagen_2026-03-30_225515848.png", pinOrder: 6,
   },
-  /* Repos que NO quieres mostrar: */
   "predict_admission_IA25":  { hidden: true },
   "analizador-inversiones":  { hidden: true },
 };
 
-/* ════════════════════════════════════════════════════
-   ⬆  FIN DE LA ZONA DE CONFIGURACIÓN
-   ─────────────────────────────────────────────────
-   No necesitas editar nada debajo de esta línea
-   para mantener el contenido del portafolio.
-════════════════════════════════════════════════════ */
+/* ⬆ FIN DE LA ZONA DE CONFIGURACIÓN */
 </script>
 
 <style>
-/* ════════════════ RESET & TOKENS ════════════════ */
+/* ════════ RESET & TOKENS ════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f4f4ef;--bg2:#ffffff;--bg3:#eeede8;--bg-dark:#181818;
-  --text:#161616;--muted:#636363;--subtle:#999;
-  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);
-  --green:#16a34a;--green-bg:rgba(22,163,74,0.07);--green-br:rgba(22,163,74,0.18);
-  --tag-bg:rgba(0,0,0,0.045);--tag-br:rgba(0,0,0,0.09);--tag-text:#3a3a3a;
-  --r:10px;--r2:18px;--r3:24px;
-  --section-pad:96px;--content-max:1080px;--gutter:48px;
-  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+  --ink:#15191e;
+  --ink-soft:#2a2f36;
+  --paper:#fbfaf8;
+  --paper2:#f3f1ec;
+  --card:#ffffff;
+  --signal:#2f6f5b;
+  --signal-bg:rgba(47,111,91,0.07);
+  --signal-br:rgba(47,111,91,0.2);
+  --data:#b4531f;
+  --rule:#ddd9d1;
+  --rule2:#cbc6bc;
+  --dim:#6b7177;
+  --subtle:#9a9892;
+  --ease:cubic-bezier(0.2,0.7,0.3,1);
+  --ease2:cubic-bezier(0.16,1,0.3,1);
+  --max:1120px;--gutter:48px;--pad:104px;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  background:var(--bg);color:var(--text);overflow-x:hidden;
-  line-height:1.6;-webkit-font-smoothing:antialiased;
+  font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  background:var(--paper);color:var(--ink);overflow-x:hidden;
+  line-height:1.65;-webkit-font-smoothing:antialiased;
 }
-.skip-link{
-  position:absolute;top:-100%;left:16px;background:var(--text);color:var(--bg);
-  padding:8px 16px;border-radius:0 0 var(--r) var(--r);
-  font-size:13px;font-weight:500;text-decoration:none;z-index:1000;
-}
+::selection{background:var(--signal);color:var(--paper)}
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--ink);color:var(--paper);padding:8px 16px;border-radius:0 0 6px 6px;font-size:13px;z-index:1000;text-decoration:none}
 .skip-link:focus{top:0}
-:focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:3px}
 
-/* ════════════════ SCROLL BAR ════════════════ */
-#scrollBar{
-  position:fixed;top:0;left:0;height:2px;z-index:300;
-  background:var(--text);width:0%;transition:width 0.1s linear;
-  pointer-events:none;
-}
+/* progress */
+#bar{position:fixed;top:0;left:0;height:2px;z-index:300;background:var(--signal);width:0;transition:width .1s linear;pointer-events:none}
 
-/* ════════════════ NAV ════════════════ */
-.site-nav{
+/* ════════ NAV ════════ */
+.nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 var(--gutter);height:56px;
-  background:rgba(244,244,239,0.86);
-  backdrop-filter:blur(18px) saturate(150%);
-  -webkit-backdrop-filter:blur(18px) saturate(150%);
-  border-bottom:1px solid var(--border);
+  padding:0 var(--gutter);height:60px;
+  background:rgba(251,250,248,0.82);backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s;
 }
-.nav-logo{
-  font-family:'Syne',sans-serif;font-size:15px;font-weight:700;
-  color:var(--text);text-decoration:none;letter-spacing:-0.03em;
-  display:flex;align-items:center;gap:8px;
-}
-.nav-dot{
-  width:6px;height:6px;background:var(--green);border-radius:50%;
-  animation:pulse 2.6s ease infinite;flex-shrink:0;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.35;transform:scale(1.7)}}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.brand{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:9px}
+.brand .mark{width:9px;height:9px;border:1.5px solid var(--signal);border-radius:50%;position:relative;flex-shrink:0}
+.brand .mark::after{content:'';position:absolute;inset:2px;background:var(--signal);border-radius:50%;animation:beat 2.6s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.5)}}
 .nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{
-  font-size:13px;color:var(--muted);text-decoration:none;
-  font-weight:400;transition:color 0.18s;letter-spacing:0.01em;
-}
-.nav-links a:hover{color:var(--text)}
-.lang-toggle{
-  display:flex;align-items:center;gap:2px;
-  background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:3px;
-}
-.lang-btn{
-  font-size:11px;font-family:'JetBrains Mono',monospace;font-weight:500;
-  padding:4px 11px;border-radius:14px;border:none;cursor:pointer;
-  background:transparent;color:var(--muted);transition:background 0.18s,color 0.18s;line-height:1;
-}
-.lang-btn.active{background:var(--text);color:var(--bg)}
-.lang-btn:hover:not(.active){color:var(--text)}
+.nav-links a{font-size:14px;color:var(--dim);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--ink);transition:width .25s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.lang{display:flex;gap:2px;background:var(--paper2);border:1px solid var(--rule2);border-radius:6px;padding:3px}
+.lang button{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;padding:4px 11px;border-radius:4px;border:none;cursor:pointer;background:transparent;color:var(--dim);transition:background .2s,color .2s;line-height:1}
+.lang button.active{background:var(--ink);color:var(--paper)}
+.lang button:hover:not(.active){color:var(--ink)}
 
-/* ════════════════ HERO ════════════════ */
-#hero{min-height:100vh;display:flex;align-items:center;padding:100px var(--gutter) 80px}
-.hero-inner{
-  max-width:var(--content-max);margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 240px;gap:72px;align-items:center;
-}
-.hero-text{min-width:0}
-.hero-status{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:11.5px;font-family:'JetBrains Mono',monospace;
-  color:var(--green);background:var(--green-bg);
-  border:1px solid var(--green-br);padding:5px 13px;border-radius:20px;margin-bottom:24px;
-  opacity:0;animation:fadeUp 0.55s 0.08s var(--ease) forwards;
-}
-.hero-status::before{
-  content:'';width:5px;height:5px;background:var(--green);
-  border-radius:50%;animation:pulse 1.9s ease infinite;flex-shrink:0;
-}
-h1.hero-name{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(52px,7.5vw,92px);
-  font-weight:800;line-height:0.93;letter-spacing:-0.05em;color:var(--text);
-  margin-bottom:20px;opacity:0;animation:fadeUp 0.55s 0.16s var(--ease) forwards;
-}
-.hero-rule{
-  display:block;width:40px;height:2px;background:var(--text);
-  margin-bottom:20px;border-radius:2px;
-  opacity:0;animation:fadeUp 0.55s 0.24s var(--ease) forwards;
-}
-.hero-sub{
-  font-size:14px;font-weight:400;color:var(--muted);letter-spacing:0.01em;
-  margin-bottom:24px;opacity:0;animation:fadeUp 0.55s 0.3s var(--ease) forwards;
-}
-.hero-bio{
-  font-size:16px;font-weight:300;color:var(--muted);
-  line-height:1.8;margin-bottom:40px;max-width:480px;
-  opacity:0;animation:fadeUp 0.55s 0.36s var(--ease) forwards;
-}
-.hero-bio strong{color:var(--text);font-weight:500}
-.hero-ctas{
-  display:flex;gap:10px;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 0.55s 0.44s var(--ease) forwards;
-}
-.btn{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:13.5px;font-weight:500;font-family:'Inter',sans-serif;
-  text-decoration:none;padding:11px 22px;border-radius:980px;
-  border:1.5px solid transparent;cursor:pointer;
-  transition:transform 0.18s var(--ease),box-shadow 0.18s,background 0.18s,border-color 0.18s;
-  letter-spacing:-0.01em;
-}
-.btn-primary{background:var(--text);color:var(--bg);border-color:var(--text)}
-.btn-primary:hover{background:var(--bg-dark);border-color:var(--bg-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.16)}
-.btn-outline{background:transparent;color:var(--text);border-color:var(--border2)}
-.btn-outline:hover{border-color:var(--text);background:rgba(0,0,0,0.04);transform:translateY(-2px)}
+/* ════════ HERO ════════ */
+#hero{min-height:100vh;display:flex;align-items:center;padding:110px var(--gutter) 72px}
+.hero-inner{max-width:var(--max);margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 300px;gap:64px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--signal);margin-bottom:34px;opacity:0}
+.status .live{width:6px;height:6px;background:var(--signal);border-radius:50%;flex-shrink:0;animation:beat 2.4s ease-in-out infinite}
+h1.headline{font-family:'Fraunces',serif;font-size:clamp(44px,6vw,80px);font-weight:500;line-height:0.98;letter-spacing:-0.025em;margin-bottom:28px;max-width:12ch}
+h1.headline .ln{display:block;overflow:hidden}
+h1.headline .ln span{display:block;opacity:0;transform:translateY(100%)}
+h1.headline .accent{font-style:italic;font-weight:400;color:var(--signal)}
+.lede{font-size:18px;font-weight:300;color:var(--ink);line-height:1.7;max-width:44ch;margin-bottom:14px;opacity:0}
+.lede strong{font-weight:500}
+.sub{font-size:15px;color:var(--dim);max-width:46ch;margin-bottom:40px;opacity:0}
+.ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;opacity:0}
+.btn{font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;padding:12px 22px;border-radius:6px;transition:transform .2s var(--ease),background .2s,border-color .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-main{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn-main:hover{background:#000;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,0.14)}
+.btn-ghost{background:none;color:var(--ink);border:1px solid var(--rule2)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
 
-/* Foto */
-.hero-photo-col{
-  display:flex;flex-direction:column;align-items:center;gap:18px;
-  opacity:0;animation:fadeUp 0.55s 0.5s var(--ease) forwards;
-}
-.photo-frame{
-  width:210px;height:210px;border-radius:50%;padding:2px;
-  background:linear-gradient(150deg,#d0cfc8,#e8e7e0,#b0afa8);flex-shrink:0;
-}
-.photo-inner{
-  width:100%;height:100%;border-radius:50%;background:var(--bg3);overflow:hidden;
-  display:flex;align-items:center;justify-content:center;border:3px solid var(--bg);
-  font-family:'Syne',sans-serif;font-size:36px;font-weight:700;
-  color:var(--muted);letter-spacing:-0.02em;
-}
-.photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.photo-badges{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
-.photo-badge{
-  font-size:11px;font-family:'JetBrains Mono',monospace;
-  padding:4px 10px;border-radius:20px;
-  background:var(--bg2);border:1px solid var(--border2);color:var(--muted);
-}
-.photo-badge.available{color:var(--green);background:var(--green-bg);border-color:var(--green-br)}
+/* panel de lecturas */
+.panel{border:1px solid var(--rule2);border-radius:10px;overflow:hidden;background:var(--card);opacity:0}
+.panel-head{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);padding:12px 16px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between}
+.panel-head .pdot{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:beat 2.6s ease-in-out infinite}
+.reading{padding:18px 16px;border-bottom:1px solid var(--rule);transition:background .2s}
+.reading:last-child{border-bottom:none}
+.reading:hover{background:var(--signal-bg)}
+.reading .val{font-family:'Fraunces',serif;font-size:34px;font-weight:500;line-height:1;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:4px}
+.reading .val .u{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--data);font-weight:400}
+.reading .lab{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
 
-/* ════════════════ STATS BAR ════════════════ */
-.stats-bar{background:var(--bg-dark)}
-.stats-inner{
-  max-width:var(--content-max);margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-}
-.stat-cell{
-  padding:36px 20px;text-align:center;
-  border-right:1px solid rgba(255,255,255,0.06);transition:background 0.2s;
-}
-.stat-cell:last-child{border-right:none}
-.stat-cell:hover{background:rgba(255,255,255,0.025)}
-.stat-num{
-  font-family:'Syne',sans-serif;font-size:42px;font-weight:800;
-  letter-spacing:-0.05em;color:#fff;line-height:1;margin-bottom:7px;display:block;
-}
-.stat-label{
-  font-size:10.5px;color:rgba(255,255,255,0.35);
-  font-family:'JetBrains Mono',monospace;letter-spacing:0.07em;text-transform:uppercase;
-}
+/* hero load animation */
+.loaded .status{animation:rise .7s .15s var(--ease) forwards}
+.loaded h1.headline .ln:nth-child(1) span{animation:unmask .8s .25s var(--ease2) forwards}
+.loaded h1.headline .ln:nth-child(2) span{animation:unmask .8s .36s var(--ease2) forwards}
+.loaded h1.headline .ln:nth-child(3) span{animation:unmask .8s .47s var(--ease2) forwards}
+.loaded .lede{animation:rise .75s .55s var(--ease) forwards}
+.loaded .sub{animation:rise .75s .63s var(--ease) forwards}
+.loaded .ctas{animation:rise .75s .71s var(--ease) forwards}
+.loaded .panel{animation:rise .85s .5s var(--ease2) forwards}
+@keyframes unmask{to{opacity:1;transform:none}}
+@keyframes rise{to{opacity:1;transform:none}}
 
-/* ════════════════ LAYOUT ════════════════ */
-.container{max-width:var(--content-max);margin:0 auto;padding:0 var(--gutter)}
-.section{padding:var(--section-pad) 0}
-.bg-alt{background:var(--bg3)}
-.sep{height:1px;background:var(--border)}
-.sec-label{
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;
-  letter-spacing:0.11em;text-transform:uppercase;color:var(--subtle);
-  margin-bottom:10px;display:block;
-}
-.sec-title{
-  font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,50px);
-  font-weight:800;letter-spacing:-0.04em;line-height:1.06;color:var(--text);margin-bottom:12px;
-}
-.sec-sub{
-  font-size:15px;font-weight:300;color:var(--muted);
-  max-width:460px;line-height:1.75;margin-bottom:48px;
-}
+/* ════════ LAYOUT ════════ */
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.section{padding:var(--pad) 0}
+.sep{height:1px;background:var(--rule)}
+.alt{background:var(--paper2)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--signal);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:18px;height:1px;background:var(--signal)}
+.sec-title{font-family:'Fraunces',serif;font-size:clamp(30px,3.8vw,46px);font-weight:500;letter-spacing:-0.025em;line-height:1.05;color:var(--ink);margin-bottom:14px}
+.sec-sub{font-size:16px;font-weight:300;color:var(--dim);max-width:52ch;line-height:1.7;margin-bottom:52px}
 
-/* ════════════════ PROJECTS ════════════════ */
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.projects-grid+.projects-grid{margin-top:14px}
-.proj-card{
-  background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);
-  padding:28px;cursor:pointer;
-  transition:transform 0.22s var(--ease),border-color 0.22s,box-shadow 0.22s;
-  display:flex;flex-direction:column;min-height:240px;position:relative;overflow:hidden;
-}
-.proj-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:0 14px 40px rgba(0,0,0,0.08)}
-.proj-card:focus-visible{outline:2px solid var(--text);outline-offset:3px}
-.proj-card.is-featured{
-  grid-column:1/-1;flex-direction:row;align-items:center;
-  gap:36px;min-height:200px;
-  background:var(--bg-dark);border-color:rgba(255,255,255,0.07);
-}
-.proj-card.is-featured:hover{box-shadow:0 18px 56px rgba(0,0,0,0.22);border-color:rgba(255,255,255,0.13)}
-.proj-card.is-featured .proj-category{background:rgba(255,255,255,0.09);color:rgba(255,255,255,0.55);border-color:rgba(255,255,255,0.1)}
-.proj-card.is-featured .proj-title{color:#fff}
-.proj-card.is-featured .proj-desc{color:rgba(255,255,255,0.5)}
-.proj-card.is-featured .stack-pill{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.09)}
-.proj-card.is-featured .link-arrow{color:rgba(255,255,255,0.65)}
-.proj-card.is-featured .link-arrow:hover{color:#fff}
-.proj-visual{
-  flex-shrink:0;border-radius:var(--r);overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.proj-visual img{width:100%;height:100%;object-fit:cover;display:block}
-.proj-visual.fallback{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);font-size:40px}
-.is-featured .proj-visual{width:148px;height:112px}
-.proj-card:not(.is-featured) .proj-visual{
-  width:100%;height:130px;margin-bottom:20px;
-  background:var(--bg3);border:1px solid var(--border);
-}
-.proj-card:not(.is-featured) .proj-visual.fallback{background:var(--bg3);border:1px solid var(--border);font-size:36px}
-.proj-body{flex:1;display:flex;flex-direction:column;min-width:0}
-.proj-category{
-  display:inline-flex;align-items:center;
-  font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:500;
-  letter-spacing:0.08em;text-transform:uppercase;
-  background:var(--tag-bg);color:var(--subtle);
-  padding:3px 9px;border-radius:20px;margin-bottom:12px;
-  border:1px solid var(--tag-br);width:fit-content;
-}
-.proj-metric{
-  display:inline-flex;align-items:center;
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;
-  color:var(--green);background:var(--green-bg);
-  padding:3px 9px;border-radius:20px;border:1px solid var(--green-br);
-  margin-bottom:10px;width:fit-content;
-}
-.proj-title{
-  font-family:'Syne',sans-serif;font-size:17px;font-weight:700;
-  letter-spacing:-0.025em;color:var(--text);margin-bottom:8px;line-height:1.2;
-}
-.proj-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:16px;flex:1}
-.proj-stack{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
-.stack-pill{
-  font-family:'JetBrains Mono',monospace;font-size:9.5px;
-  padding:3px 8px;border-radius:20px;
-  background:var(--tag-bg);color:var(--muted);border:1px solid var(--tag-br);
-}
-.proj-footer{display:flex;align-items:center;gap:12px;margin-top:auto}
-.link-arrow{
-  font-size:12.5px;font-weight:500;color:var(--muted);text-decoration:none;
-  display:inline-flex;align-items:center;gap:4px;transition:color 0.18s,gap 0.18s;
-}
-.link-arrow:hover{color:var(--text);gap:8px}
-.demo-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11.5px;font-weight:500;color:var(--green);
-  background:var(--green-bg);padding:4px 11px;border-radius:20px;
-  border:1px solid var(--green-br);text-decoration:none;
-  transition:background 0.18s,border-color 0.18s;
-}
-.demo-btn::before{content:'●';font-size:7px}
-.demo-btn:hover{background:rgba(22,163,74,0.13);border-color:rgba(22,163,74,0.3)}
-.gh-status{
-  margin-top:28px;font-size:11px;
-  font-family:'JetBrains Mono',monospace;color:var(--subtle);text-align:center;min-height:18px;
-}
-.more-heading{
-  font-family:'Syne',sans-serif;font-size:14px;font-weight:600;
-  color:var(--muted);letter-spacing:-0.02em;
-  margin:36px 0 14px;padding-top:28px;border-top:1px solid var(--border);
-}
+/* ════════ PROJECTS ════════ */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.proj-grid+.proj-grid{margin-top:16px}
+.proj{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:0;cursor:pointer;transition:transform .3s var(--ease2),border-color .3s,box-shadow .3s;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.proj:hover{transform:translateY(-5px);border-color:var(--rule2);box-shadow:0 18px 44px rgba(21,25,30,0.09)}
+.proj:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.proj.feat{grid-column:1/-1;flex-direction:row;align-items:stretch;background:var(--ink);border-color:var(--ink)}
+.proj.feat:hover{box-shadow:0 22px 54px rgba(21,25,30,0.22)}
+.proj-visual{overflow:hidden;background:var(--paper2);position:relative}
+.proj-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease2)}
+.proj:hover .proj-visual img{transform:scale(1.04)}
+.proj:not(.feat) .proj-visual{height:150px;border-bottom:1px solid var(--rule)}
+.proj.feat .proj-visual{width:46%;min-height:260px;border-bottom:none;border-right:1px solid rgba(255,255,255,0.08)}
+.proj-body{padding:26px 28px;flex:1;display:flex;flex-direction:column;min-width:0}
+.proj.feat .proj-body{justify-content:center;padding:40px}
+.tagline{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:var(--subtle);margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.proj.feat .tagline{color:rgba(255,255,255,0.5)}
+.tagline .fdot{width:5px;height:5px;border-radius:50%;background:var(--signal)}
+.metric{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--data);background:rgba(180,83,31,0.08);border:1px solid rgba(180,83,31,0.2);padding:3px 9px;border-radius:5px;margin-bottom:12px;width:fit-content}
+.proj.feat .metric{color:#f0a877;background:rgba(240,168,119,0.1);border-color:rgba(240,168,119,0.25)}
+.proj-title{font-family:'Fraunces',serif;font-size:19px;font-weight:500;letter-spacing:-0.015em;color:var(--ink);margin-bottom:9px;line-height:1.2}
+.proj.feat .proj-title{color:#fff;font-size:24px}
+.proj-desc{font-size:13.5px;font-weight:300;color:var(--dim);line-height:1.65;margin-bottom:18px;flex:1}
+.proj.feat .proj-desc{color:rgba(255,255,255,0.56);font-size:14.5px;max-width:44ch}
+.proj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.pill{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:3px 8px;border-radius:5px;background:var(--paper2);color:var(--dim);border:1px solid var(--rule)}
+.proj.feat .pill{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.1)}
+.proj-foot{display:flex;align-items:center;gap:14px;margin-top:auto}
+.code-link{font-size:12.5px;font-weight:500;color:var(--dim);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:color .2s,gap .2s}
+.code-link:hover{color:var(--ink);gap:8px}
+.proj.feat .code-link{color:rgba(255,255,255,0.7)}
+.proj.feat .code-link:hover{color:#fff}
+.demo-link{font-size:12px;font-weight:500;color:var(--signal);background:var(--signal-bg);padding:4px 11px;border-radius:5px;border:1px solid var(--signal-br);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:background .2s}
+.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.demo-link:hover{background:rgba(47,111,91,0.14)}
+.proj.feat .demo-link{color:#8fd4bb;background:rgba(143,212,187,0.1);border-color:rgba(143,212,187,0.22)}
+.proj.feat .demo-link::before{background:#8fd4bb}
+.gh-status{margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--subtle);text-align:center;min-height:18px}
+.more-head{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);margin:40px 0 16px;padding-top:30px;border-top:1px solid var(--rule);display:flex;align-items:center;gap:8px}
+.more-head::before{content:'';width:18px;height:1px;background:var(--rule2)}
 
-/* ════════════════ SKILLS ════════════════ */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.skill-card{
-  padding:24px;border:1px solid var(--border);border-radius:var(--r2);
-  background:var(--bg2);transition:border-color 0.22s,transform 0.22s;
-}
-.skill-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.skill-icon{font-size:20px;margin-bottom:12px;display:block}
-.skill-name{
-  font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700;
-  color:var(--text);margin-bottom:12px;letter-spacing:-0.02em;
-}
-.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
-.skill-tag{
-  font-family:'JetBrains Mono',monospace;font-size:9.5px;
-  padding:3px 8px;border-radius:20px;
-  background:var(--tag-bg);color:var(--muted);border:1px solid var(--tag-br);
-  transition:color 0.18s,border-color 0.18s;
-}
-.skill-card:hover .skill-tag{color:var(--tag-text);border-color:var(--border2)}
+/* ════════ PHOTOS ════════ */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.photo{border-radius:12px;overflow:hidden;background:var(--paper2);border:1px solid var(--rule);position:relative;aspect-ratio:4/3}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s var(--ease2)}
+.photo:hover img{transform:scale(1.05)}
+.photo .ph-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--subtle);font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:center;padding:16px}
+.photo .ph-empty .ico{font-size:24px;opacity:0.5}
+.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 12px;background:linear-gradient(transparent,rgba(21,25,30,0.78));color:#fff;font-size:13px;font-weight:400;opacity:0;transition:opacity .3s;pointer-events:none}
+.photo:hover .cap{opacity:1}
 
-/* ════════════════ EXPERIENCE ════════════════ */
+/* ════════ SKILLS ════════ */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.skill{padding:26px;border:1px solid var(--rule);border-radius:12px;background:var(--card);transition:border-color .3s,transform .3s var(--ease2)}
+.skill:hover{border-color:var(--rule2);transform:translateY(-4px)}
+.skill-ico{font-size:20px;margin-bottom:14px;display:block}
+.skill-name{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:14px;letter-spacing:-0.015em}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:3px 8px;border-radius:5px;background:var(--paper2);color:var(--dim);border:1px solid var(--rule);transition:color .2s,border-color .2s}
+.skill:hover .skill-tag{border-color:var(--rule2)}
+
+/* ════════ EXPERIENCE ════════ */
 .exp-list{display:flex;flex-direction:column}
-.exp-item{
-  display:grid;grid-template-columns:180px 1fr;gap:44px;
-  padding:40px 0;border-bottom:1px solid var(--border);
-}
-.exp-item:first-child{padding-top:0}
-.exp-item:last-child{border-bottom:none;padding-bottom:0}
-.exp-date{
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;
-  color:var(--subtle);padding-top:3px;letter-spacing:0.04em;line-height:1.8;
-}
-.exp-now{
-  display:inline-block;font-size:9.5px;
-  background:var(--green-bg);color:var(--green);
-  border:1px solid var(--green-br);padding:2px 7px;border-radius:20px;margin-top:5px;
-}
-.exp-role{
-  font-family:'Syne',sans-serif;font-size:17px;font-weight:700;
-  color:var(--text);margin-bottom:2px;letter-spacing:-0.025em;
-}
-.exp-co{font-size:12.5px;color:var(--muted);margin-bottom:13px}
-.exp-list-items{list-style:none;padding:0;margin-bottom:14px}
-.exp-list-items li{
-  font-size:13.5px;font-weight:300;color:var(--muted);
-  line-height:1.7;margin-bottom:5px;padding-left:14px;position:relative;
-}
-.exp-list-items li::before{content:'—';position:absolute;left:0;color:rgba(0,0,0,0.2);font-size:11px}
-.exp-tags{display:flex;flex-wrap:wrap;gap:5px}
-.exp-tag{
-  font-family:'JetBrains Mono',monospace;font-size:9.5px;
-  padding:3px 8px;border-radius:20px;
-  background:var(--tag-bg);color:var(--subtle);border:1px solid var(--tag-br);
-}
+.exp{display:grid;grid-template-columns:168px 1fr;gap:44px;padding:40px 0;border-bottom:1px solid var(--rule);position:relative}
+.exp:first-child{padding-top:0}
+.exp:last-child{border-bottom:none;padding-bottom:0}
+.exp-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--dim);padding-top:4px;line-height:1.9}
+.exp-now{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--signal);background:var(--signal-bg);border:1px solid var(--signal-br);padding:2px 8px;border-radius:12px;margin-top:8px}
+.exp-now::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--signal);animation:beat 2.4s ease-in-out infinite}
+.exp-role{font-family:'Fraunces',serif;font-size:19px;font-weight:500;color:var(--ink);margin-bottom:3px;letter-spacing:-0.015em}
+.exp-co{font-size:13px;color:var(--dim);margin-bottom:16px}
+.exp-ul{list-style:none;margin-bottom:16px}
+.exp-ul li{font-size:14px;font-weight:300;color:var(--ink-soft);line-height:1.7;margin-bottom:8px;padding-left:18px;position:relative}
+.exp-ul li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--signal)}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.exp-tag{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:3px 8px;border-radius:5px;background:var(--paper2);color:var(--subtle);border:1px solid var(--rule)}
 
-/* ==== EXPERIENCE — animación de entrada por cascada ==== */
-.exp-item .exp-date{opacity:0;transform:translateX(-14px);transition:opacity .55s var(--ease) .08s,transform .55s var(--ease) .08s}
-.exp-item.in .exp-date{opacity:1;transform:none}
-.exp-item .exp-role{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease) .14s,transform .5s var(--ease) .14s}
-.exp-item.in .exp-role{opacity:1;transform:none}
-.exp-item .exp-co{opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease) .2s,transform .5s var(--ease) .2s}
-.exp-item.in .exp-co{opacity:1;transform:none}
-.exp-item .exp-list-items li{opacity:0;transform:translateX(-10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.exp-item.in .exp-list-items li{opacity:1;transform:none}
-.exp-item.in .exp-list-items li:nth-child(1){transition-delay:.28s}
-.exp-item.in .exp-list-items li:nth-child(2){transition-delay:.37s}
-.exp-item.in .exp-list-items li:nth-child(3){transition-delay:.46s}
-.exp-item.in .exp-list-items li:nth-child(4){transition-delay:.55s}
-.exp-item.in .exp-list-items li:nth-child(5){transition-delay:.64s}
-.exp-item .exp-tags{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease) .58s,transform .5s var(--ease) .58s}
-.exp-item.in .exp-tags{opacity:1;transform:none}
-.exp-now{animation:expBadge 2.6s ease-in-out infinite}
-@keyframes expBadge{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}50%{box-shadow:0 0 0 4px rgba(22,163,74,0.09)}}
-@media(prefers-reduced-motion:reduce){
-  .exp-item .exp-date,.exp-item .exp-role,.exp-item .exp-co,.exp-item .exp-list-items li,.exp-item .exp-tags,.exp-now{transition:none!important;animation:none!important;opacity:1!important;transform:none!important}
-}
+/* ════════ CERTS ════════ */
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cert{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--card);border:1px solid var(--rule);border-radius:10px;transition:border-color .3s,transform .25s var(--ease)}
+.cert:hover{border-color:var(--rule2);transform:translateX(4px)}
+.cert-year{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--signal);min-width:32px}
+.cert-title{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.cert-inst{font-size:12px;color:var(--subtle)}
 
-/* ════════════════ CERTIFICATIONS ════════════════ */
-.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.cert-card{
-  display:flex;align-items:center;gap:14px;
-  padding:16px 20px;background:var(--bg2);
-  border:1px solid var(--border);border-radius:var(--r);
-  transition:border-color 0.22s,transform 0.2s;
-}
-.cert-card:hover{border-color:var(--border2);transform:translateX(3px)}
-.cert-year{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--subtle);min-width:30px}
-.cert-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:1px}
-.cert-inst{font-size:11.5px;color:var(--subtle)}
-
-/* ════════════════ ABOUT ════════════════ */
-.about-grid{display:grid;grid-template-columns:1fr 340px;gap:72px;align-items:start}
-.about-text p{font-size:15px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px}
+/* ════════ ABOUT ════════ */
+.about-grid{display:grid;grid-template-columns:300px 1fr 300px;gap:56px;align-items:start}
+.about-photo{border-radius:12px;overflow:hidden;background:var(--paper2);border:1px solid var(--rule);aspect-ratio:3/4;position:relative}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-photo .ph-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:48px;color:var(--subtle)}
+.about-text p{font-size:15.5px;font-weight:300;color:var(--ink-soft);line-height:1.85;margin-bottom:18px}
 .about-text p:last-child{margin-bottom:0}
-.about-text strong{color:var(--text);font-weight:500}
-.about-sidebar{display:flex;flex-direction:column}
-.detail-row{
-  display:flex;justify-content:space-between;align-items:baseline;
-  padding:12px 0;border-bottom:1px solid var(--border);gap:16px;
-}
-.detail-row:last-child{border-bottom:none}
-.detail-key{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  color:var(--subtle);letter-spacing:0.09em;text-transform:uppercase;flex-shrink:0;
-}
-.detail-val{font-size:13px;color:var(--text);text-align:right}
-.detail-val a{color:var(--muted);text-decoration:none;transition:color 0.18s}
-.detail-val a:hover{color:var(--text)}
-.detail-val.is-green{color:var(--green);font-weight:500}
-.lang-section{margin-top:28px}
-.lang-label{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);
-  margin-bottom:14px;display:block;
-}
-.lang-rows{display:flex;flex-direction:column;gap:11px}
-.lang-row{display:flex;align-items:center;gap:10px}
-.lang-name{font-size:12.5px;color:var(--muted);min-width:68px}
-.lang-track{flex:1;height:2px;background:var(--border2);border-radius:2px;overflow:hidden}
-.lang-fill{
-  height:100%;border-radius:2px;background:var(--text);width:0;
-  transition:width 1.1s cubic-bezier(0.4,0,0.2,1);
-}
-.lang-level{font-size:10.5px;font-family:'JetBrains Mono',monospace;color:var(--subtle);min-width:22px;text-align:right}
+.about-text strong{color:var(--ink);font-weight:500}
+.about-side{display:flex;flex-direction:column}
+.drow{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule);gap:16px}
+.drow:first-child{padding-top:0}
+.drow:last-child{border-bottom:none}
+.dkey{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--subtle)}
+.dval{font-size:13px;color:var(--ink);text-align:right}
+.dval a{color:var(--dim);text-decoration:none;transition:color .2s}
+.dval a:hover{color:var(--signal)}
+.dval.green{color:var(--signal);display:inline-flex;align-items:center;gap:6px;justify-content:flex-end}
+.dval.green::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--signal)}
+.langs{margin-top:30px}
+.langs-lab{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--subtle);margin-bottom:16px;display:block}
+.lang-rows{display:flex;flex-direction:column;gap:13px}
+.lrow{display:flex;align-items:center;gap:12px}
+.lname{font-size:12.5px;color:var(--dim);min-width:72px}
+.ltrack{flex:1;height:2px;background:var(--rule2);border-radius:2px;overflow:hidden}
+.lfill{height:100%;background:var(--signal);width:0;transition:width 1.1s var(--ease2)}
+.llevel{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--subtle);min-width:24px;text-align:right}
 
-/* ════════════════ CONTACT ════════════════ */
-.contact-section{
-  background:var(--bg-dark);padding:var(--section-pad) var(--gutter);text-align:center;
-}
-.contact-section .sec-label{color:rgba(255,255,255,0.25)}
-.contact-section .sec-title{color:#fff}
-.contact-section .sec-sub{color:rgba(255,255,255,0.4);margin:0 auto 48px}
-.contact-grid{
-  max-width:720px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-}
-.contact-card{
-  display:flex;flex-direction:column;align-items:center;gap:9px;
-  padding:24px 14px;background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.07);border-radius:var(--r2);
-  text-decoration:none;color:inherit;
-  transition:border-color 0.22s,background 0.22s,transform 0.22s;
-}
-.contact-card:hover{border-color:rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);transform:translateY(-4px)}
-.contact-card:focus-visible{outline:2px solid rgba(255,255,255,0.5);outline-offset:3px}
-.c-icon{font-size:18px}
-.c-label{
-  font-size:9.5px;font-family:'JetBrains Mono',monospace;
-  letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.3);
-}
-.c-val{font-size:12px;color:rgba(255,255,255,0.75);text-align:center;word-break:break-all}
+/* ════════ CONTACT ════════ */
+.contact{background:var(--ink);padding:var(--pad) var(--gutter);text-align:center}
+.contact .eyebrow{color:#8fd4bb;justify-content:center}
+.contact .eyebrow::before{background:#8fd4bb}
+.contact .sec-title{color:#fff}
+.contact-sub{font-size:16px;color:rgba(255,255,255,0.5);max-width:48ch;margin:0 auto 52px;line-height:1.7;font-weight:300}
+.contact-grid{max-width:760px;margin:0 auto;display:grid;gap:12px}
+.ccard{display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .3s,background .3s,transform .3s var(--ease2)}
+.ccard:hover{border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);transform:translateY(-5px)}
+.cico{font-size:18px}
+.clab{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3)}
+.cval{font-size:12px;color:rgba(255,255,255,0.75);word-break:break-all;text-align:center}
 
-/* ════════════════ FOOTER ════════════════ */
-.site-footer{
-  background:var(--bg-dark);padding:24px var(--gutter);
-  border-top:1px solid rgba(255,255,255,0.05);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.site-footer p{font-size:11.5px;color:rgba(255,255,255,0.22)}
-.site-footer a{font-size:11.5px;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.18s}
-.site-footer a:hover{color:rgba(255,255,255,0.6)}
+/* ════════ FOOTER ════════ */
+.foot{background:var(--ink);padding:26px var(--gutter);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+.foot p{font-size:11.5px;color:rgba(255,255,255,0.25)}
+.foot a{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color .2s}
+.foot a:hover{color:rgba(255,255,255,0.65)}
 
-/* ════════════════ ANIMATIONS ════════════════ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.55s var(--ease),transform 0.55s var(--ease)}
-.reveal-x{opacity:0;transform:translateX(-18px);transition:opacity 0.55s var(--ease),transform 0.55s var(--ease)}
-.reveal.in,.reveal-x.in{opacity:1;transform:none}
+/* ════════ SCROLL REVEAL ════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease2),transform .7s var(--ease2)}
+.reveal.in{opacity:1;transform:none}
 
-/* ════════════════ RESPONSIVE ════════════════ */
-@media(max-width:900px){
-  :root{--gutter:24px;--section-pad:72px}
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:920px){
+  :root{--gutter:28px;--pad:76px}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
-  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo{max-width:300px}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:768px){
-  .site-nav{padding:0 var(--gutter)}
+@media(max-width:760px){
+  .nav{padding:0 var(--gutter)}
   .nav-links{display:none}
-  #hero{padding:92px var(--gutter) 64px}
-  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
-  .hero-text .hero-bio,.hero-text .hero-rule{margin-left:auto;margin-right:auto}
-  .hero-ctas{justify-content:center}
-  .hero-photo-col{order:-1}
-  .photo-frame{width:160px;height:160px}
-  .stats-inner{grid-template-columns:repeat(2,1fr)}
-  .stat-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:24px 16px}
-  .stat-cell:nth-child(2),.stat-cell:nth-child(4){border-bottom:none}
-  .projects-grid{grid-template-columns:1fr}
-  .proj-card.is-featured{flex-direction:column;gap:20px;min-height:auto}
-  .is-featured .proj-visual{width:100%;height:100px}
+  #hero{padding:96px var(--gutter) 64px}
+  .hero-inner{grid-template-columns:1fr;gap:44px}
+  .panel{max-width:340px}
+  .proj-grid{grid-template-columns:1fr}
+  .proj.feat{flex-direction:column}
+  .proj.feat .proj-visual{width:100%;min-height:200px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
   .skills-grid{grid-template-columns:1fr}
   .cert-grid{grid-template-columns:1fr}
-  .exp-item{grid-template-columns:1fr;gap:6px}
+  .exp{grid-template-columns:1fr;gap:10px}
   .contact-grid{grid-template-columns:repeat(2,1fr)}
-  .site-footer{flex-direction:column;gap:8px;text-align:center}
+  .photo-grid{grid-template-columns:1fr}
+  .foot{flex-direction:column;gap:10px;text-align:center}
 }
-@media(max-width:380px){
-  .hero-ctas{flex-direction:column;align-items:center}
-  .contact-grid{grid-template-columns:1fr 1fr}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .status,.lede,.sub,.ctas,.panel,.reveal,h1.headline .ln span{opacity:1!important;transform:none!important}
 }
 </style>
 </head>
 
 <body>
+<a href="#projects" class="skip-link">Saltar al contenido</a>
+<div id="bar" aria-hidden="true"></div>
 
-<a href="#projects" class="skip-link">Saltar al contenido principal</a>
-<div id="scrollBar" aria-hidden="true"></div>
-
-<!-- NAV — el logo y los links se rellenan por JS -->
-<nav class="site-nav" aria-label="Navegación principal">
-  <a href="#" class="nav-logo" id="navLogo" aria-label="Inicio">
-    <span class="nav-dot" aria-hidden="true"></span>
-  </a>
+<nav class="nav" id="nav" aria-label="Navegación">
+  <a href="#" class="brand"><span class="mark"></span><span id="brandName"></span></a>
   <ul class="nav-links" id="navLinks" role="list"></ul>
-  <div class="lang-toggle" role="group" aria-label="Selector de idioma">
-    <button class="lang-btn active" id="btn-es" aria-pressed="true"  aria-label="Español">ES</button>
-    <button class="lang-btn"        id="btn-en" aria-pressed="false" aria-label="English">EN</button>
+  <div class="lang" role="group" aria-label="Idioma">
+    <button id="b-es" class="active" aria-pressed="true">ES</button>
+    <button id="b-en" aria-pressed="false">EN</button>
   </div>
 </nav>
 
-<!-- HERO — contenido inyectado por JS -->
 <section id="hero" aria-label="Presentación">
   <div class="hero-inner">
-    <div class="hero-text" id="heroText"></div>
-    <div class="hero-photo-col" aria-hidden="true" id="heroPhoto"></div>
+    <div id="heroText"></div>
+    <div id="heroPanel"></div>
   </div>
 </section>
 
-<!-- STATS — inyectado por JS si SHOW.stats -->
-<div id="statsSection"></div>
-
-<!-- PROYECTOS — contenedores fijos, tarjetas inyectadas por JS -->
+<div id="photosSection"></div>
 <div id="projectsSection"></div>
-
-<!-- SKILLS — inyectado por JS si SHOW.skills -->
 <div id="skillsSection"></div>
-
-<!-- EXPERIENCIA — inyectado por JS si SHOW.experience -->
 <div id="experienceSection"></div>
-
-<!-- CERTIFICACIONES — inyectado por JS si SHOW.certifications -->
-<div id="certificationsSection"></div>
-
-<!-- ABOUT — inyectado por JS si SHOW.about -->
+<div id="certsSection"></div>
 <div id="aboutSection"></div>
-
-<!-- CONTACTO — inyectado por JS si SHOW.contact -->
 <div id="contactSection"></div>
+<footer class="foot" id="footer"></footer>
 
-<!-- FOOTER — inyectado por JS -->
-<footer class="site-footer" id="siteFooter"></footer>
-
-<!-- ════════════════════════════════════════════════════════════════
-     MOTOR DEL PORTAFOLIO — No necesitas editar nada aquí
-     Solo si quieres cambiar comportamiento técnico del sitio.
-════════════════════════════════════════════════════════════════ -->
 <script>
 'use strict';
 
-/* ────────────────────────────────────────────────────
-   TRADUCCIONES DE UI (labels fijos de interfaz)
-   Solo strings que son parte del chrome del sitio,
-   no del contenido (ese ya está en los arrays de datos).
-──────────────────────────────────────────────────── */
+/* ────── UI STRINGS ────── */
 const UI = {
-  es: {
-    nav: { projects:'Proyectos', skills:'Skills', experience:'Experiencia', about:'Sobre mí', contact:'Contacto' },
-    hero: { cta_projects:'Ver proyectos', cta_available:'● Disponible' },
-    stats_section: 'Estadísticas',
-    projects: { label:'Portafolio', title:'Proyectos destacados', sub:'Código abierto, modelos en producción y demos en vivo.', more:'Más en GitHub', featured:'⭐ Destacado', code:'Ver código →', gh_loading:'Cargando desde GitHub…', gh_error:'No se pudo conectar con GitHub. Mostrando proyectos curados.' },
-    skills:   { label:'Tecnologías', title_pre:'Stack', title_hl:'técnico', sub:'Herramientas con las que construyo soluciones robustas de datos.' },
-    exp:      { label:'Trayectoria', title_pre:'Experiencia', title_hl:'profesional', sub:'Roles donde apliqué ciencia de datos para resolver problemas reales.', current:'● Actual' },
-    certs:    { label:'Formación', title_pre:'Cursos y', title_hl:'certificaciones' },
-    about:    { label:'Sobre mí', title_pre:'Quién', title_hl:'soy', langs_label:'Idiomas' },
-    contact:  { label:'Contacto', title:'¿Hablamos?', sub:'Abierto a oportunidades full-time, consultoría y colaboraciones en Data & AI.' },
-    sidebar:  { location:'Ubicación', availability:'Disponibilidad', available_yes:'● Disponible', mode:'Modalidad', education:'Educación', phone:'Teléfono' },
-    demo_btn: 'Live Demo',
-    no_desc:  'Sin descripción.',
+  es:{
+    nav:{projects:'Proyectos',photos:'Momentos',skills:'Skills',experience:'Experiencia',about:'Sobre mí',contact:'Contacto'},
+    hero:{projects:'Ver proyectos'},
+    photos:{eyebrow:'Momentos',title:'En el trabajo',sub:'Charlas, equipos y eventos a lo largo del camino.'},
+    projects:{eyebrow:'Portafolio',title:'Proyectos',sub:'Código abierto, modelos en producción y demos en vivo. Sincronizado con GitHub.',more:'Más en GitHub',code:'Ver código',loading:'Cargando desde GitHub…',error:'No se pudo conectar con GitHub. Mostrando proyectos curados.',demo:'Demo'},
+    skills:{eyebrow:'Stack',title:'Herramientas',sub:'Con lo que construyo sistemas de IA y datos.'},
+    exp:{eyebrow:'Trayectoria',title:'Experiencia',sub:'Dónde apliqué IA y ciencia de datos para resolver problemas reales.',current:'Actual'},
+    certs:{eyebrow:'Formación',title:'Certificaciones'},
+    about:{eyebrow:'Sobre mí',title:'Quién soy',langs:'Idiomas'},
+    contact:{eyebrow:'Contacto',title:'Hablemos',sub:'Abierto a oportunidades full-time, consultoría y colaboraciones en IA y datos.'},
+    side:{location:'Ubicación',availability:'Disponibilidad',available:'Disponible',mode:'Modalidad',education:'Educación',phone:'Teléfono'},
   },
-  en: {
-    nav: { projects:'Projects', skills:'Skills', experience:'Experience', about:'About', contact:'Contact' },
-    hero: { cta_projects:'See projects', cta_available:'● Available' },
-    stats_section: 'Statistics',
-    projects: { label:'Portfolio', title:'Featured projects', sub:'Open-source code, production models and live demos.', more:'More on GitHub', featured:'⭐ Featured', code:'View code →', gh_loading:'Loading from GitHub…', gh_error:'Could not connect to GitHub. Showing curated projects.' },
-    skills:   { label:'Technologies', title_pre:'Technical', title_hl:'stack', sub:'Tools I use daily to build robust data solutions.' },
-    exp:      { label:'Career', title_pre:'Professional', title_hl:'experience', sub:'Roles where I applied data science to solve real high-impact problems.', current:'● Current' },
-    certs:    { label:'Education', title_pre:'Courses &', title_hl:'certifications' },
-    about:    { label:'About', title_pre:'Who', title_hl:'I am', langs_label:'Languages' },
-    contact:  { label:'Contact', title:"Let's talk?", sub:'Open to full-time roles, consulting projects and Data & AI collaborations.' },
-    sidebar:  { location:'Location', availability:'Availability', available_yes:'● Available', mode:'Mode', education:'Education', phone:'Phone' },
-    demo_btn: 'Live Demo',
-    no_desc:  'No description available.',
+  en:{
+    nav:{projects:'Projects',photos:'Moments',skills:'Skills',experience:'Experience',about:'About',contact:'Contact'},
+    hero:{projects:'See projects'},
+    photos:{eyebrow:'Moments',title:'At work',sub:'Talks, teams and events along the way.'},
+    projects:{eyebrow:'Portfolio',title:'Projects',sub:'Open-source code, production models and live demos. Synced with GitHub.',more:'More on GitHub',code:'View code',loading:'Loading from GitHub…',error:'Could not connect to GitHub. Showing curated projects.',demo:'Demo'},
+    skills:{eyebrow:'Stack',title:'Tooling',sub:'What I use to build AI and data systems.'},
+    exp:{eyebrow:'Career',title:'Experience',sub:'Where I applied AI and data science to real problems.',current:'Current'},
+    certs:{eyebrow:'Education',title:'Certifications'},
+    about:{eyebrow:'About',title:'Who I am',langs:'Languages'},
+    contact:{eyebrow:'Contact',title:"Let's talk",sub:'Open to full-time roles, consulting and AI & data collaborations.'},
+    side:{location:'Location',availability:'Availability',available:'Available',mode:'Mode',education:'Education',phone:'Phone'},
   }
 };
 
-/* ────────────────────────────────────────────────────
-   ESTADO GLOBAL
-──────────────────────────────────────────────────── */
-let lang = 'es';
+let lang='es';
+function t(p){return p.split('.').reduce((o,k)=>(o&&o[k]!==undefined?o[k]:''),UI[lang]);}
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!==undefined)e.innerHTML=html;return e;}
 
-function t(path) {
-  /* Navega UI[lang].a.b.c desde string "a.b.c" */
-  return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : ''), UI[lang]);
+/* ────── progress + nav shadow ────── */
+const bar=document.getElementById('bar'),navEl=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const max=document.body.scrollHeight-window.innerHeight;
+  bar.style.width=(max>0?(window.scrollY/max)*100:0)+'%';
+  navEl.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+
+/* ────── reveal ────── */
+const revObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+function observe(root=document){root.querySelectorAll('.reveal').forEach(e=>revObs.observe(e));}
+function stagger(grid){grid.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=(i*0.08)+'s';});}
+
+/* ────── counters ────── */
+const cntObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const node=e.target,target=+node.dataset.target,suf=node.dataset.suffix||'';let cur=0;const steps=48,inc=target/steps;const tm=setInterval(()=>{cur=Math.min(cur+inc,target);node.firstChild.textContent=Math.round(cur);if(cur>=target)clearInterval(tm);},900/steps);cntObs.unobserve(node);});},{threshold:0.6});
+
+/* ────── lang bars ────── */
+const barObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;e.target.querySelectorAll('.lfill').forEach(b=>{setTimeout(()=>{b.style.width=b.dataset.w+'%';},150);});barObs.unobserve(e.target);});},{threshold:0.3});
+
+/* ────── NAV ────── */
+function renderNav(){
+  document.getElementById('brandName').textContent=GITHUB_USER;
+  const items=[['#projects',t('nav.projects')]];
+  if(PHOTOS.filter(p=>p.src).length||PHOTOS.length)items.push(['#photos',t('nav.photos')]);
+  items.push(['#skills',t('nav.skills')],['#experience',t('nav.experience')],['#about',t('nav.about')],['#contact',t('nav.contact')]);
+  const filtered=items.filter(([h])=>SHOW[h.slice(1)]!==false||h==='#photos');
+  document.getElementById('navLinks').innerHTML=filtered.map(([h,l])=>`<li><a href="${h}">${l}</a></li>`).join('');
 }
 
-/* ────────────────────────────────────────────────────
-   HELPERS DE DOM
-──────────────────────────────────────────────────── */
-function el(tag, cls, html) {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (html !== undefined) e.innerHTML = html;
-  return e;
-}
-
-function sect(id, bgClass = '') {
-  const wrap = el('div', bgClass);
-  wrap.id = id;
-  return wrap;
-}
-
-/* ────────────────────────────────────────────────────
-   SCROLL PROGRESS BAR
-──────────────────────────────────────────────────── */
-const scrollBar = document.getElementById('scrollBar');
-window.addEventListener('scroll', () => {
-  const max = document.body.scrollHeight - window.innerHeight;
-  scrollBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
-}, { passive: true });
-
-/* ────────────────────────────────────────────────────
-   SCROLL REVEAL
-──────────────────────────────────────────────────── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
-
-function observeAll(root = document) {
-  root.querySelectorAll('.reveal, .reveal-x').forEach(e => revealObs.observe(e));
-}
-
-function stagger(grid) {
-  grid.querySelectorAll('.reveal').forEach((e, i) => { e.style.transitionDelay = (i * 0.07) + 's'; });
-}
-
-/* ────────────────────────────────────────────────────
-   CONTADORES
-──────────────────────────────────────────────────── */
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.target, suffix = el.dataset.suffix || '+';
-    let cur = 0;
-    const steps = 55, inc = target / steps;
-    const timer = setInterval(() => {
-      cur = Math.min(cur + inc, target);
-      el.textContent = Math.floor(cur) + suffix;
-      if (cur >= target) clearInterval(timer);
-    }, 1200 / steps);
-    counterObs.unobserve(el);
-  });
-}, { threshold: 0.6 });
-
-/* ────────────────────────────────────────────────────
-   BARRAS DE IDIOMA
-──────────────────────────────────────────────────── */
-const langBarObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.querySelectorAll('.lang-fill').forEach(b => {
-      setTimeout(() => { b.style.width = b.dataset.w + '%'; }, 120);
-    });
-    langBarObs.unobserve(e.target);
-  });
-}, { threshold: 0.3 });
-
-/* ────────────────────────────────────────────────────
-   NAV
-──────────────────────────────────────────────────── */
-function renderNav() {
-  const logo = document.getElementById('navLogo');
-  logo.innerHTML = `<span class="nav-dot" aria-hidden="true"></span>${GITHUB_USER}`;
-
-  const links = document.getElementById('navLinks');
-  const sections = [
-    ['#projects',   t('nav.projects')],
-    ['#skills',     t('nav.skills')],
-    ['#experience', t('nav.experience')],
-    ['#about',      t('nav.about')],
-    ['#contact',    t('nav.contact')],
-  ].filter(([href]) => {
-    const key = href.slice(1);
-    return SHOW[key] !== false;
-  });
-
-  links.innerHTML = sections.map(([href, label]) =>
-    `<li><a href="${href}">${label}</a></li>`
-  ).join('');
-}
-
-/* ────────────────────────────────────────────────────
-   HERO
-──────────────────────────────────────────────────── */
-function renderHero() {
-  /* Foto */
-  const photoCol = document.getElementById('heroPhoto');
-  photoCol.innerHTML = `
-    <div class="photo-frame">
-      <div class="photo-inner" id="photoInner">${PROFILE.initials}</div>
-    </div>
-    <div class="photo-badges">
-      <span class="photo-badge available">${t('hero.cta_available')}</span>
-      <span class="photo-badge">${PROFILE.location}</span>
-    </div>`;
-
-  if (PROFILE.photo && PROFILE.photo.trim()) {
-    const img = document.createElement('img');
-    img.src = PROFILE.photo;
-    img.alt = PROFILE.name_full;
-    const inner = document.getElementById('photoInner');
-    inner.innerHTML = '';
-    inner.appendChild(img);
-  }
-
-  /* Texto hero */
-  const heroText = document.getElementById('heroText');
-  const bio = lang === 'en' ? PROFILE.bio_en : PROFILE.bio_es;
-  const available = lang === 'en' ? PROFILE.available_en : PROFILE.available_es;
-  const role = lang === 'en' ? PROFILE.role_en : PROFILE.role_es;
-
-  const ctaLinks = [
-    `<a href="#projects" class="btn btn-primary">${t('projects.code').replace(' →','')}</a>`,
-    PROFILE.links.linkedin ? `<a href="${PROFILE.links.linkedin}" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>` : '',
-    PROFILE.links.github   ? `<a href="${PROFILE.links.github}"   target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>`   : '',
-    PROFILE.links.cv       ? `<a href="${PROFILE.links.cv}"       target="_blank" rel="noopener" class="btn btn-outline">CV ↗</a>`       : '',
+/* ────── HERO ────── */
+function renderHero(){
+  const hl=lang==='en'?PROFILE.headline_en:PROFILE.headline_es;
+  const lede=lang==='en'?PROFILE.lede_en:PROFILE.lede_es;
+  const sub=lang==='en'?PROFILE.sub_en:PROFILE.sub_es;
+  const avail=lang==='en'?PROFILE.available_en:PROFILE.available_es;
+  const L=PROFILE.links;
+  const ctas=[
+    `<a href="#projects" class="btn btn-main">${t('hero.projects')}</a>`,
+    L.linkedin?`<a href="${L.linkedin}" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>`:'',
+    L.github?`<a href="${L.github}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>`:'',
+    L.cv?`<a href="${L.cv}" target="_blank" rel="noopener" class="btn btn-ghost">CV ↗</a>`:'',
   ].filter(Boolean).join('');
+  document.getElementById('heroText').innerHTML=`
+    <div class="status"><span class="live"></span>${avail}</div>
+    <h1 class="headline">
+      <span class="ln"><span>${hl[0]}</span></span>
+      <span class="ln"><span>${hl[1]}</span></span>
+      <span class="ln"><span class="accent">${hl[2]}</span></span>
+    </h1>
+    <p class="lede">${lede}</p>
+    <p class="sub">${sub}</p>
+    <div class="ctas">${ctas}</div>`;
 
-  heroText.innerHTML = `
-    <div class="hero-status" role="status">${available}</div>
-    <h1 class="hero-name">${PROFILE.name_line1}<br/>${PROFILE.name_line2}</h1>
-    <span class="hero-rule" aria-hidden="true"></span>
-    <p class="hero-sub">${role}</p>
-    <p class="hero-bio">${bio}</p>
-    <div class="hero-ctas">${ctaLinks}</div>`;
-}
-
-/* ────────────────────────────────────────────────────
-   STATS
-──────────────────────────────────────────────────── */
-function renderStats() {
-  const target = document.getElementById('statsSection');
-  if (!SHOW.stats) { target.remove(); return; }
-
-  const cells = STATS.map(s => `
-    <div class="stat-cell reveal">
-      <span class="stat-num" data-target="${s.target}" data-suffix="${s.suffix}">0</span>
-      <span class="stat-label">${lang === 'en' ? s.label_en : s.label_es}</span>
+  const readings=STATS.map(s=>`
+    <div class="reading">
+      <div class="val"><span data-target="${s.target}" data-suffix="${s.suffix}">0</span>${s.suffix?`<span class="u">${s.suffix}</span>`:''}${s.unit?`<span class="u">${s.unit}</span>`:''}</div>
+      <div class="lab">${lang==='en'?s.label_en:s.label_es}</div>
     </div>`).join('');
-
-  target.innerHTML = `
-    <div class="stats-bar" aria-label="${t('stats_section')}">
-      <div class="stats-inner">${cells}</div>
-    </div>`;
-
-  target.querySelectorAll('[data-target]').forEach(e => counterObs.observe(e));
-  observeAll(target);
+  document.getElementById('heroPanel').innerHTML=`
+    <aside class="panel" aria-label="Métricas">
+      <div class="panel-head"><span>estado · live</span><span class="pdot"></span></div>
+      ${readings}
+    </aside>`;
+  if(SHOW.stats)document.querySelectorAll('.reading [data-target]').forEach(e=>cntObs.observe(e));
 }
 
-/* ────────────────────────────────────────────────────
-   PROYECTOS — helper visual (imagen + fallback emoji)
-──────────────────────────────────────────────────── */
-function createVisual(meta, isFeatured) {
-  const wrap = document.createElement('div');
-  wrap.className = 'proj-visual';
-
-  if (!meta.image) {
-    wrap.style.display = 'none';
-    return wrap;
-  }
-
-  const img = document.createElement('img');
-  img.alt = meta.title_es || meta.repo || '';
-  img.src = meta.image;
-
-  img.onerror = () => {
-    wrap.style.display = 'none';
-    img.remove();
-  };
-
-  wrap.appendChild(img);
-  return wrap;
-}
-/* ────────────────────────────────────────────────────
-   PROYECTOS — render de una tarjeta
-──────────────────────────────────────────────────── */
-function formatName(str) {
-  return (str || '').replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
-function createCard(meta, isFeatured) {
-  const card = document.createElement('div');
-  card.className = 'proj-card reveal' + (isFeatured ? ' is-featured' : '');
-  card.setAttribute('role', 'listitem');
-  card.setAttribute('tabindex', '0');
-
-  const title = (lang === 'en' ? meta.title_en : meta.title_es) || formatName(meta.repo || meta.name);
-  const desc  = (lang === 'en' ? meta.desc_en  : meta.desc_es)  || meta.ghDesc || '';
-  const tags  = (meta.tags && meta.tags.length) ? meta.tags : (meta.topics || []);
-  const catLabel = isFeatured ? t('projects.featured') : tags.slice(0, 2).join(' · ') || (meta.language || '');
-
-  const metricHtml = meta.metric ? `<div class="proj-metric">${meta.metric}</div>` : '';
-  const demoHtml   = meta.demo
-    ? `<a href="${meta.demo}" target="_blank" rel="noopener" class="demo-btn" aria-label="Demo: ${title}">${t('demo_btn')}</a>` : '';
-  const stackHtml  = tags.length ? `<div class="proj-stack">${tags.map(t => `<span class="stack-pill">${t}</span>`).join('')}</div>` : '';
-
-  const body = el('div', 'proj-body', `
-    ${catLabel ? `<span class="proj-category">${catLabel}</span>` : ''}
-    ${metricHtml}
-    <h3 class="proj-title">${title}</h3>
-    <p class="proj-desc">${desc}</p>
-    ${stackHtml}
-    <div class="proj-footer">
-      <a href="${meta.url}" target="_blank" rel="noopener" class="link-arrow">${t('projects.code')}</a>
-      ${demoHtml}
-    </div>`);
-
-  const visual = createVisual(meta);
-
-  if (isFeatured) { card.appendChild(body); card.appendChild(visual); }
-  else            { card.appendChild(visual); card.appendChild(body); }
-
-  card.addEventListener('click', e => { if (e.target.closest('a')) return; window.open(meta.url, '_blank', 'noopener'); });
-  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.open(meta.url, '_blank', 'noopener'); } });
-
-  return card;
-}
-
-/* ────────────────────────────────────────────────────
-   PROYECTOS — render sección completa
-──────────────────────────────────────────────────── */
-function renderProjectsShell() {
-  const target = document.getElementById('projectsSection');
-  if (!SHOW.projects) { target.remove(); return; }
-
-  target.className = 'bg-alt';
-  target.innerHTML = `
-    <div id="projects">
-      <div class="container">
-        <div class="section">
-          <span class="sec-label reveal">${t('projects.label')}</span>
-          <h2 class="sec-title reveal">${t('projects.title')}</h2>
-          <p class="sec-sub reveal">${t('projects.sub')}</p>
-          <div class="projects-grid" id="pinnedGrid" aria-label="${t('projects.title')}" role="list"></div>
-          <p class="more-heading reveal" id="moreHeading" style="display:none">${t('projects.more')}</p>
-          <div class="projects-grid" id="extraGrid" aria-label="${t('projects.more')}" role="list"></div>
-          <p class="gh-status" id="ghStatus" aria-live="polite"></p>
-        </div>
-      </div>
-    </div>`;
-  observeAll(target);
-}
-
-function renderPinned() {
-  const grid = document.getElementById('pinnedGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-
-  Object.entries(PROJECT_META)
-    .filter(([, m]) => !m.hidden && m.pinOrder)
-    .sort(([, a], [, b]) => (a.pinOrder || 99) - (b.pinOrder || 99))
-    .forEach(([repo, meta]) => {
-      const merged = { ...meta, repo, name: repo, url: `https://github.com/${GITHUB_USER}/${repo}` };
-      grid.appendChild(createCard(merged, !!meta.featured));
-    });
-
-  stagger(grid); observeAll(grid);
-}
-
-async function loadExtraFromGitHub() {
-  const extra  = document.getElementById('extraGrid');
-  const head   = document.getElementById('moreHeading');
-  const status = document.getElementById('ghStatus');
-  if (!extra) return;
-
-  status.textContent = t('projects.gh_loading');
-  try {
-    const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
-      { headers: { Accept: 'application/vnd.github.v3+json' } });
-    if (!res.ok) throw new Error('API error');
-    const repos = await res.json();
-
-    const pinnedKeys = new Set(
-      Object.entries(PROJECT_META).filter(([, m]) => m.pinOrder).map(([k]) => k.toLowerCase())
-    );
-    const extras = repos.filter(r => !r.fork && !pinnedKeys.has(r.name.toLowerCase()) && !PROJECT_META[r.name]?.hidden).slice(0, 6);
-
-    extra.innerHTML = '';
-    if (extras.length) {
-      head.style.display = '';
-      extras.forEach(r => {
-        const ov = PROJECT_META[r.name] || {};
-        const merged = { repo: r.name, name: r.name, url: r.html_url, ghDesc: r.description, language: r.language, topics: r.topics || [], ...ov };
-        extra.appendChild(createCard(merged, false));
-      });
-      stagger(extra); observeAll(extra);
-    }
-    const date = new Date().toLocaleDateString(lang === 'en' ? 'en-US' : 'es-CO');
-    status.textContent = `↻ ${lang === 'en' ? 'Synced from GitHub' : 'Sincronizado desde GitHub'} · ${repos.length} repos · ${date}`;
-  } catch {
-    status.textContent = t('projects.gh_error');
-  }
-}
-
-/* ────────────────────────────────────────────────────
-   SKILLS
-──────────────────────────────────────────────────── */
-function renderSkills() {
-  const target = document.getElementById('skillsSection');
-  if (!SHOW.skills) { target.remove(); return; }
-
-  const cards = SKILLS.map(s => `
-    <div class="skill-card reveal" role="listitem">
-      <span class="skill-icon" aria-hidden="true">${s.icon}</span>
-      <h3 class="skill-name">${s.name}</h3>
-      <div class="skill-tags">${s.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}</div>
-    </div>`).join('');
-
-  target.innerHTML = `
-    <div class="sep"></div>
-    <div id="skills">
-      <div class="container">
-        <div class="section">
-          <span class="sec-label reveal">${t('skills.label')}</span>
-          <h2 class="sec-title reveal">${t('skills.title_pre')} <span>${t('skills.title_hl')}</span></h2>
-          <p class="sec-sub reveal">${t('skills.sub')}</p>
-          <div class="skills-grid" role="list">${cards}</div>
-        </div>
-      </div>
-    </div>`;
-
-  stagger(target.querySelector('.skills-grid'));
-  observeAll(target);
-}
-
-/* ────────────────────────────────────────────────────
-   EXPERIENCIA
-──────────────────────────────────────────────────── */
-function renderExperience() {
-  const target = document.getElementById('experienceSection');
-  if (!SHOW.experience) { target.remove(); return; }
-
-  const items = EXPERIENCE.map(exp => {
-    const role    = lang === 'en' ? exp.role_en    : exp.role_es;
-    const period  = lang === 'en' ? exp.period_en  : exp.period_es;
-    const bullets = lang === 'en' ? exp.bullets_en : exp.bullets_es;
-    const now     = exp.current ? `<span class="exp-now">${t('exp.current')}</span>` : '';
-    const lis     = bullets.map(b => `<li>${b}</li>`).join('');
-    const tags    = exp.tags.map(tag => `<span class="exp-tag">${tag}</span>`).join('');
-
-    return `
-      <article class="exp-item reveal">
-        <div class="exp-date">${period}${now}</div>
-        <div>
-          <h3 class="exp-role">${role}</h3>
-          <p class="exp-co">${exp.company}</p>
-          <ul class="exp-list-items">${lis}</ul>
-          <div class="exp-tags">${tags}</div>
-        </div>
-      </article>`;
+/* ────── PHOTOS ────── */
+function renderPhotos(){
+  const tgt=document.getElementById('photosSection');
+  if(!PHOTOS.length){tgt.remove();return;}
+  const cards=PHOTOS.map(p=>{
+    const cap=lang==='en'?p.caption_en:p.caption_es;
+    const inner=p.src
+      ? `<img src="${p.src}" alt="${cap||''}"/><div class="cap">${cap||''}</div>`
+      : `<div class="ph-empty"><span class="ico">⊹</span>${cap||'Foto'}</div>`;
+    return `<div class="photo reveal">${inner}</div>`;
   }).join('');
-
-  target.innerHTML = `
+  tgt.className='alt';
+  tgt.innerHTML=`
     <div class="sep"></div>
-    <div class="bg-alt" id="experience">
-      <div class="container">
-        <div class="section">
-          <span class="sec-label reveal">${t('exp.label')}</span>
-          <h2 class="sec-title reveal">${t('exp.title_pre')} <span>${t('exp.title_hl')}</span></h2>
-          <p class="sec-sub reveal">${t('exp.sub')}</p>
-          <div class="exp-list">${items}</div>
-        </div>
-      </div>
-    </div>`;
-
-  observeAll(target);
+    <div id="photos"><div class="container"><div class="section">
+      <div class="eyebrow reveal">${t('photos.eyebrow')}</div>
+      <h2 class="sec-title reveal">${t('photos.title')}</h2>
+      <p class="sec-sub reveal">${t('photos.sub')}</p>
+      <div class="photo-grid">${cards}</div>
+    </div></div></div>`;
+  stagger(tgt.querySelector('.photo-grid'));observe(tgt);
 }
 
-/* ────────────────────────────────────────────────────
-   CERTIFICACIONES
-──────────────────────────────────────────────────── */
-function renderCertifications() {
-  const target = document.getElementById('certificationsSection');
-  if (!SHOW.certifications) { target.remove(); return; }
+/* ────── PROJECTS ────── */
+function fmt(s){return(s||'').replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());}
+function card(meta,feat){
+  const c=el('div','proj reveal'+(feat?' feat':''));
+  c.setAttribute('role','listitem');c.setAttribute('tabindex','0');
+  const title=(lang==='en'?meta.title_en:meta.title_es)||fmt(meta.repo||meta.name);
+  const desc=(lang==='en'?meta.desc_en:meta.desc_es)||meta.ghDesc||'';
+  const tags=(meta.tags&&meta.tags.length)?meta.tags:(meta.topics||[]);
+  const tagline=feat?'★ Destacado':(tags.slice(0,2).join(' · ')||meta.language||'');
+  const metricHtml=meta.metric?`<div class="metric">${meta.metric}</div>`:'';
+  const stack=tags.length?`<div class="proj-stack">${tags.map(x=>`<span class="pill">${x}</span>`).join('')}</div>`:'';
+  const demo=meta.demo?`<a href="${meta.demo}" target="_blank" rel="noopener" class="demo-link">${t('projects.demo')}</a>`:'';
+  const visual=meta.image?`<div class="proj-visual"><img src="${meta.image}" alt="${title}" loading="lazy"/></div>`:'';
+  const body=`<div class="proj-body">
+      <div class="tagline"><span class="fdot"></span>${tagline}</div>
+      ${metricHtml}
+      <h3 class="proj-title">${title}</h3>
+      <p class="proj-desc">${desc}</p>
+      ${stack}
+      <div class="proj-foot"><a href="${meta.url}" target="_blank" rel="noopener" class="code-link">${t('projects.code')} →</a>${demo}</div>
+    </div>`;
+  c.innerHTML=feat?(visual+body):(visual+body);
+  c.addEventListener('click',e=>{if(e.target.closest('a'))return;window.open(meta.url,'_blank','noopener');});
+  c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();window.open(meta.url,'_blank','noopener');}});
+  return c;
+}
+function renderProjShell(){
+  const tgt=document.getElementById('projectsSection');
+  if(!SHOW.projects){tgt.remove();return;}
+  tgt.innerHTML=`
+    <div class="sep"></div>
+    <div id="projects"><div class="container"><div class="section">
+      <div class="eyebrow reveal">${t('projects.eyebrow')}</div>
+      <h2 class="sec-title reveal">${t('projects.title')}</h2>
+      <p class="sec-sub reveal">${t('projects.sub')}</p>
+      <div class="proj-grid" id="pinnedGrid" role="list"></div>
+      <p class="more-head reveal" id="moreHead" style="display:none">${t('projects.more')}</p>
+      <div class="proj-grid" id="extraGrid" role="list"></div>
+      <p class="gh-status" id="ghStatus" aria-live="polite"></p>
+    </div></div></div>`;
+  observe(tgt);
+}
+function renderPinned(){
+  const grid=document.getElementById('pinnedGrid');if(!grid)return;grid.innerHTML='';
+  Object.entries(PROJECT_META).filter(([,m])=>!m.hidden&&m.pinOrder).sort(([,a],[,b])=>(a.pinOrder||99)-(b.pinOrder||99))
+    .forEach(([repo,meta])=>{const m={...meta,repo,name:repo,url:`https://github.com/${GITHUB_USER}/${repo}`};grid.appendChild(card(m,!!meta.featured));});
+  stagger(grid);observe(grid);
+}
+async function loadExtra(){
+  const extra=document.getElementById('extraGrid'),head=document.getElementById('moreHead'),status=document.getElementById('ghStatus');
+  if(!extra)return;status.textContent=t('projects.loading');
+  try{
+    const res=await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,{headers:{Accept:'application/vnd.github.v3+json'}});
+    if(!res.ok)throw new Error();
+    const repos=await res.json();
+    const pinned=new Set(Object.entries(PROJECT_META).filter(([,m])=>m.pinOrder).map(([k])=>k.toLowerCase()));
+    const extras=repos.filter(r=>!r.fork&&!pinned.has(r.name.toLowerCase())&&!PROJECT_META[r.name]?.hidden).slice(0,6);
+    extra.innerHTML='';
+    if(extras.length){head.style.display='';extras.forEach(r=>{const ov=PROJECT_META[r.name]||{};const m={repo:r.name,name:r.name,url:r.html_url,ghDesc:r.description,language:r.language,topics:r.topics||[],...ov};extra.appendChild(card(m,false));});stagger(extra);observe(extra);}
+    const date=new Date().toLocaleDateString(lang==='en'?'en-US':'es-CO');
+    status.textContent=`↻ ${lang==='en'?'Synced from GitHub':'Sincronizado'} · ${repos.length} repos · ${date}`;
+  }catch{status.textContent=t('projects.error');}
+}
 
-  const cards = CERTIFICATIONS.map(c => {
-    const title = lang === 'en' ? (c.title_en || c.title_es) : c.title_es;
-    return `
-      <div class="cert-card reveal">
-        <span class="cert-year">${c.year}</span>
-        <div>
-          <div class="cert-title">${title}</div>
-          <div class="cert-inst">${c.institution}</div>
-        </div>
-      </div>`;
+/* ────── SKILLS ────── */
+function renderSkills(){
+  const tgt=document.getElementById('skillsSection');if(!SHOW.skills){tgt.remove();return;}
+  const cards=SKILLS.map(s=>`<div class="skill reveal"><span class="skill-ico" aria-hidden="true">${s.icon}</span><h3 class="skill-name">${s.name}</h3><div class="skill-tags">${s.tags.map(x=>`<span class="skill-tag">${x}</span>`).join('')}</div></div>`).join('');
+  tgt.className='alt';
+  tgt.innerHTML=`<div class="sep"></div><div id="skills"><div class="container"><div class="section">
+    <div class="eyebrow reveal">${t('skills.eyebrow')}</div><h2 class="sec-title reveal">${t('skills.title')}</h2><p class="sec-sub reveal">${t('skills.sub')}</p>
+    <div class="skills-grid">${cards}</div></div></div></div>`;
+  stagger(tgt.querySelector('.skills-grid'));observe(tgt);
+}
+
+/* ────── EXPERIENCE ────── */
+function renderExp(){
+  const tgt=document.getElementById('experienceSection');if(!SHOW.experience){tgt.remove();return;}
+  const items=EXPERIENCE.map(x=>{
+    const role=lang==='en'?x.role_en:x.role_es,per=lang==='en'?x.period_en:x.period_es,bl=lang==='en'?x.bullets_en:x.bullets_es;
+    const now=x.current?`<div class="exp-now">${t('exp.current')}</div>`:'';
+    return `<article class="exp reveal"><div class="exp-meta">${per}${now}</div><div><h3 class="exp-role">${role}</h3><p class="exp-co">${x.company}</p><ul class="exp-ul">${bl.map(b=>`<li>${b}</li>`).join('')}</ul><div class="exp-tags">${x.tags.map(tg=>`<span class="exp-tag">${tg}</span>`).join('')}</div></div></article>`;
   }).join('');
-
-  target.innerHTML = `
-    <div class="sep"></div>
-    <div id="certifications">
-      <div class="container">
-        <div class="section">
-          <span class="sec-label reveal">${t('certs.label')}</span>
-          <h2 class="sec-title reveal">${t('certs.title_pre')} <span>${t('certs.title_hl')}</span></h2>
-          <div class="cert-grid">${cards}</div>
-        </div>
-      </div>
-    </div>`;
-
-  stagger(target.querySelector('.cert-grid'));
-  observeAll(target);
+  tgt.innerHTML=`<div class="sep"></div><div id="experience"><div class="container"><div class="section">
+    <div class="eyebrow reveal">${t('exp.eyebrow')}</div><h2 class="sec-title reveal">${t('exp.title')}</h2><p class="sec-sub reveal">${t('exp.sub')}</p>
+    <div class="exp-list">${items}</div></div></div></div>`;
+  observe(tgt);
 }
 
-/* ────────────────────────────────────────────────────
-   ABOUT
-──────────────────────────────────────────────────── */
-function renderAbout() {
-  const target = document.getElementById('aboutSection');
-  if (!SHOW.about) { target.remove(); return; }
+/* ────── CERTS ────── */
+function renderCerts(){
+  const tgt=document.getElementById('certsSection');if(!SHOW.certifications){tgt.remove();return;}
+  const cards=CERTIFICATIONS.map(c=>{const title=lang==='en'?(c.title_en||c.title_es):c.title_es;return `<div class="cert reveal"><span class="cert-year">${c.year}</span><div><div class="cert-title">${title}</div><div class="cert-inst">${c.institution}</div></div></div>`;}).join('');
+  tgt.className='alt';
+  tgt.innerHTML=`<div class="sep"></div><div id="certs"><div class="container"><div class="section">
+    <div class="eyebrow reveal">${t('certs.eyebrow')}</div><h2 class="sec-title reveal">${t('certs.title')}</h2>
+    <div class="cert-grid">${cards}</div></div></div></div>`;
+  stagger(tgt.querySelector('.cert-grid'));observe(tgt);
+}
 
-  /* Párrafos */
-  const paragraphs = ABOUT_PARAGRAPHS.map(p => `<p>${lang === 'en' ? p.en : p.es}</p>`).join('');
-
-  /* Barras de idioma */
-  const langBars = SHOW.languages ? `
-    <div class="lang-section">
-      <span class="lang-label">${t('about.langs_label')}</span>
-      <div class="lang-rows">
-        ${LANGUAGES.map(l => `
-          <div class="lang-row">
-            <span class="lang-name">${l.name}</span>
-            <div class="lang-track"><div class="lang-fill" data-w="${l.pct}"></div></div>
-            <span class="lang-level">${l.level}</span>
-          </div>`).join('')}
-      </div>
-    </div>` : '';
-
-  /* Sidebar */
-  const { links } = PROFILE;
-  const sidebarRows = [
-    { key: t('sidebar.location'),     val: PROFILE.location_full },
-    {
-      key: t('sidebar.availability'),
-      val: PROFILE.is_available
-        ? `<span class="is-green">${t('sidebar.available_yes')}</span>`
-        : (lang === 'en' ? 'Not available' : 'No disponible')
-    },
-    { key: t('sidebar.mode'),      val: lang === 'en' ? PROFILE.work_mode_en : PROFILE.work_mode_es },
-    { key: t('sidebar.education'), val: lang === 'en' ? PROFILE.education_en : PROFILE.education_es },
-    links.github   ? { key: 'GitHub',   val: `<a href="${links.github}"   target="_blank" rel="noopener">${GITHUB_USER} ↗</a>` } : null,
-    links.linkedin ? { key: 'LinkedIn', val: `<a href="${links.linkedin}" target="_blank" rel="noopener">${PROFILE.name_full.split(' ').slice(0,2).join(' ')} ↗</a>` } : null,
-    links.email    ? { key: 'Email',    val: `<a href="mailto:${links.email}">${links.email}</a>` } : null,
-    links.phone    ? { key: t('sidebar.phone'), val: `<a href="tel:${links.phone}">${PROFILE.links.phone_display}</a>` } : null,
-    links.cv       ? { key: 'CV',       val: `<a href="${links.cv}" target="_blank" rel="noopener">Descargar ↗</a>` } : null,
+/* ────── ABOUT ────── */
+function renderAbout(){
+  const tgt=document.getElementById('aboutSection');if(!SHOW.about){tgt.remove();return;}
+  const paras=ABOUT_PARAGRAPHS.map(p=>`<p>${lang==='en'?p.en:p.es}</p>`).join('');
+  const photo=PROFILE.photo&&PROFILE.photo.trim()
+    ? `<div class="about-photo"><img src="${PROFILE.photo}" alt="${PROFILE.name_full}"/></div>`
+    : `<div class="about-photo"><div class="ph-empty">${PROFILE.initials}</div></div>`;
+  const langBars=SHOW.languages?`<div class="langs"><span class="langs-lab">${t('about.langs')}</span><div class="lang-rows">${LANGUAGES.map(l=>`<div class="lrow"><span class="lname">${l.name}</span><div class="ltrack"><div class="lfill" data-w="${l.pct}"></div></div><span class="llevel">${l.level}</span></div>`).join('')}</div></div>`:'';
+  const L=PROFILE.links;
+  const rows=[
+    {k:t('side.location'),v:PROFILE.location_full},
+    {k:t('side.availability'),v:PROFILE.is_available?`<span class="green">${t('side.available')}</span>`:(lang==='en'?'Not available':'No disponible')},
+    {k:t('side.mode'),v:lang==='en'?PROFILE.work_mode_en:PROFILE.work_mode_es},
+    {k:t('side.education'),v:lang==='en'?PROFILE.education_en:PROFILE.education_es},
+    L.github?{k:'GitHub',v:`<a href="${L.github}" target="_blank" rel="noopener">${GITHUB_USER} ↗</a>`}:null,
+    L.linkedin?{k:'LinkedIn',v:`<a href="${L.linkedin}" target="_blank" rel="noopener">${PROFILE.name_full.split(' ').slice(0,2).join(' ')} ↗</a>`}:null,
+    L.email?{k:'Email',v:`<a href="mailto:${L.email}">${L.email}</a>`}:null,
+    L.phone?{k:t('side.phone'),v:`<a href="tel:${L.phone}">${L.phone_display}</a>`}:null,
   ].filter(Boolean);
-
-  const sidebarHtml = sidebarRows.map(r => `
-    <div class="detail-row">
-      <span class="detail-key">${r.key}</span>
-      <span class="detail-val">${r.val}</span>
-    </div>`).join('');
-
-  target.innerHTML = `
-    <div class="sep"></div>
-    <div class="bg-alt" id="about">
-      <div class="container">
-        <div class="section">
-          <span class="sec-label reveal">${t('about.label')}</span>
-          <h2 class="sec-title reveal">${t('about.title_pre')} <span>${t('about.title_hl')}</span></h2>
-          <div class="about-grid">
-            <div class="about-text reveal-x">
-              ${paragraphs}
-              ${langBars}
-            </div>
-            <div class="about-sidebar reveal">${sidebarHtml}</div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-
-  if (SHOW.languages) langBarObs.observe(target.querySelector('.lang-rows'));
-  observeAll(target);
+  const side=rows.map(r=>`<div class="drow"><span class="dkey">${r.k}</span><span class="dval">${r.v}</span></div>`).join('');
+  tgt.innerHTML=`<div class="sep"></div><div id="about"><div class="container"><div class="section">
+    <div class="eyebrow reveal">${t('about.eyebrow')}</div><h2 class="sec-title reveal">${t('about.title')}</h2>
+    <div class="about-grid"><div class="reveal">${photo}</div><div class="about-text reveal">${paras}</div><div class="about-side reveal">${side}${langBars}</div></div>
+  </div></div></div>`;
+  if(SHOW.languages)barObs.observe(tgt.querySelector('.lang-rows'));
+  observe(tgt);
 }
 
-/* ────────────────────────────────────────────────────
-   CONTACTO
-──────────────────────────────────────────────────── */
-function renderContact() {
-  const target = document.getElementById('contactSection');
-  if (!SHOW.contact) { target.remove(); return; }
-
-  const { links } = PROFILE;
-  const cards = [
-    links.email    ? { href: `mailto:${links.email}`, icon: '✉️', label: 'Email',     val: links.email } : null,
-    links.github   ? { href: links.github,   icon: '⌥',  label: 'GitHub',    val: GITHUB_USER, ext: true } : null,
-    links.linkedin ? { href: links.linkedin, icon: 'in', label: 'LinkedIn',  val: PROFILE.name_full.split(' ').slice(0,2).join(' '), ext: true } : null,
-    links.phone    ? { href: `tel:${links.phone}`, icon: '📱', label: 'WhatsApp', val: links.phone_display } : null,
-    links.cv       ? { href: links.cv, icon: '📄', label: 'CV', val: lang === 'en' ? 'Download ↗' : 'Descargar ↗', ext: true } : null,
+/* ────── CONTACT ────── */
+function renderContact(){
+  const tgt=document.getElementById('contactSection');if(!SHOW.contact){tgt.remove();return;}
+  const L=PROFILE.links;
+  const cards=[
+    L.email?{href:`mailto:${L.email}`,ico:'✉',lab:'Email',v:L.email}:null,
+    L.github?{href:L.github,ico:'⌥',lab:'GitHub',v:GITHUB_USER,ext:true}:null,
+    L.linkedin?{href:L.linkedin,ico:'in',lab:'LinkedIn',v:PROFILE.name_full.split(' ').slice(0,2).join(' '),ext:true}:null,
+    L.phone?{href:`tel:${L.phone}`,ico:'☏',lab:'WhatsApp',v:L.phone_display}:null,
+    L.cv?{href:L.cv,ico:'▤',lab:'CV',v:lang==='en'?'Download ↗':'Descargar ↗',ext:true}:null,
   ].filter(Boolean);
-
-  const cardsHtml = cards.map(c => `
-    <a href="${c.href}"${c.ext ? ' target="_blank" rel="noopener"' : ''} class="contact-card">
-      <span class="c-icon" aria-hidden="true">${c.icon}</span>
-      <span class="c-label">${c.label}</span>
-      <span class="c-val">${c.val}</span>
-    </a>`).join('');
-
-  /* Ajusta columnas según cantidad de tarjetas */
-  const cols = Math.min(cards.length, 4);
-  target.innerHTML = `
-    <div id="contact">
-      <section class="contact-section">
-        <span class="sec-label">${t('contact.label')}</span>
-        <h2 class="sec-title">${t('contact.title')}</h2>
-        <p class="sec-sub">${t('contact.sub')}</p>
-        <div class="contact-grid" style="grid-template-columns:repeat(${cols},1fr)">${cardsHtml}</div>
-      </section>
-    </div>`;
+  const cols=Math.min(cards.length,4);
+  const html=cards.map(c=>`<a href="${c.href}"${c.ext?' target="_blank" rel="noopener"':''} class="ccard"><span class="cico" aria-hidden="true">${c.ico}</span><span class="clab">${c.lab}</span><span class="cval">${c.v}</span></a>`).join('');
+  tgt.innerHTML=`<div id="contact"><section class="contact">
+    <div class="eyebrow">${t('contact.eyebrow')}</div><h2 class="sec-title">${t('contact.title')}</h2><p class="contact-sub">${t('contact.sub')}</p>
+    <div class="contact-grid" style="grid-template-columns:repeat(${cols},1fr)">${html}</div></section></div>`;
 }
 
-/* ────────────────────────────────────────────────────
-   FOOTER
-──────────────────────────────────────────────────── */
-function renderFooter() {
-  const footer = document.getElementById('siteFooter');
-  footer.innerHTML = `
-    <p>© ${PROFILE.year} ${PROFILE.name_full}</p>
-    ${PROFILE.links.github ? `<a href="${PROFILE.links.github}" target="_blank" rel="noopener">${PROFILE.links.github.replace('https://', '')} ↗</a>` : ''}`;
+/* ────── FOOTER ────── */
+function renderFooter(){
+  document.getElementById('footer').innerHTML=`<p>© ${PROFILE.year} ${PROFILE.name_full}</p>${PROFILE.links.github?`<a href="${PROFILE.links.github}" target="_blank" rel="noopener">${PROFILE.links.github.replace('https://','')} ↗</a>`:''}`;
 }
 
-/* ────────────────────────────────────────────────────
-   ORQUESTADOR PRINCIPAL
-──────────────────────────────────────────────────── */
-function renderAll() {
-  /* Metadatos de página */
-  document.getElementById('pageTitle').textContent = `${PROFILE.name_line1} ${PROFILE.name_line2} · Data Scientist`;
-  document.getElementById('metaDesc').content = `${PROFILE.name_full} — Data Scientist & ML Engineer. Portafolio de proyectos de ciencia de datos, machine learning y analítica.`;
-
-  renderNav();
-  renderHero();
-  renderStats();
-  renderProjectsShell();   /* crea el shell; luego renderPinned y loadExtraFromGitHub llenan los grids */
-  renderSkills();
-  renderExperience();
-  renderCertifications();
-  renderAbout();
-  renderContact();
-  renderFooter();
-
-  observeAll();             /* observa todos los .reveal que existan en este momento */
+/* ────── ORCHESTRATOR ────── */
+function renderAll(){
+  document.getElementById('pageTitle').textContent=`${PROFILE.name_line1} ${PROFILE.name_line2} · AI Engineer`;
+  document.getElementById('metaDesc').content=`${PROFILE.name_full} — AI Engineer, Data Scientist & Economist. Agentes de IA, gobernanza y ciencia de datos.`;
+  renderNav();renderHero();renderPhotos();renderProjShell();renderSkills();renderExp();renderCerts();renderAbout();renderContact();renderFooter();
+  observe();
 }
+function refresh(){renderNav();renderHero();renderPhotos();renderProjShell();renderSkills();renderExp();renderCerts();renderAbout();renderContact();renderFooter();observe();renderPinned();loadExtra();}
 
-function refreshContent() {
-  /* Actualiza solo las partes que dependen del idioma,
-     sin desmontar/remontar secciones (evita reflows grandes) */
-  renderNav();
-  renderHero();
-  renderStats();
-  renderProjectsShell();
-  renderSkills();
-  renderExperience();
-  renderCertifications();
-  renderAbout();
-  renderContact();
-  renderFooter();
-  observeAll();
-  renderPinned();
-  loadExtraFromGitHub();
+/* ────── LANG ────── */
+function applyLang(l){
+  lang=l;document.documentElement.lang=l;
+  document.getElementById('b-es').classList.toggle('active',l==='es');
+  document.getElementById('b-en').classList.toggle('active',l==='en');
+  document.getElementById('b-es').setAttribute('aria-pressed',l==='es');
+  document.getElementById('b-en').setAttribute('aria-pressed',l==='en');
+  refresh();
 }
+document.getElementById('b-es').addEventListener('click',()=>applyLang('es'));
+document.getElementById('b-en').addEventListener('click',()=>applyLang('en'));
 
-/* ────────────────────────────────────────────────────
-   CAMBIO DE IDIOMA
-──────────────────────────────────────────────────── */
-function applyLang(l) {
-  lang = l;
-  document.documentElement.lang = l;
-  document.getElementById('btn-es').classList.toggle('active', l === 'es');
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  document.getElementById('btn-es').setAttribute('aria-pressed', l === 'es');
-  document.getElementById('btn-en').setAttribute('aria-pressed', l === 'en');
-  refreshContent();
-}
-
-document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
-document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
-
-/* ────────────────────────────────────────────────────
-   INIT
-──────────────────────────────────────────────────── */
-function detectLang() {
-  return (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
-}
-
-lang = detectLang();
-document.getElementById('btn-' + lang).classList.add('active');
-document.getElementById('btn-' + lang).setAttribute('aria-pressed', 'true');
-
-renderAll();
-renderPinned();
-loadExtraFromGitHub();
+/* ────── INIT ────── */
+lang=(navigator.language||'es').toLowerCase().startsWith('es')?'es':'en';
+document.getElementById('b-'+lang).classList.add('active');
+renderAll();renderPinned();loadExtra();
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('loaded')));
 </script>
 </body>
 </html>
